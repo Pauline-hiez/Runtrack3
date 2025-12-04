@@ -24,7 +24,7 @@ function jourtravaille(date) {
         }
     }
 
-    const dayWeek = date.getDate;
+    const dayWeek = date.getDate();
     if (dayWeek === 0 || dayWeek === 6) {
         console.log(`Non, ${day} ${month} ${year} est un week-end`);
         return;
@@ -34,5 +34,5 @@ function jourtravaille(date) {
 }
 
 jourtravaille(new Date(2020, 0, 1));
-jourtravaille(new Date(2020, 0, 3));
+jourtravaille(new Date(2020, 0, 6));
 jourtravaille(new Date(2020, 0, 2));
