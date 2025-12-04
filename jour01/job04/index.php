@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Console.log</title>
+    <title>Année bissextile</title>
     <script src="./script.js"></script>
 </head>
 
