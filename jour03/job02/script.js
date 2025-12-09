@@ -53,9 +53,21 @@ $(function () {
 
     // Mélanger les images
     $("#shuffle").click(function () {
-        const pieces = $("#source .piece").toArray();
-        pieces.sort(() => Math.random() - 0.5);
-        $("#source").empty().append(pieces);
+        // Récupère toutes les pièces, qu'elles soient dans les slots ou dans la source
+        const allPieces = [];
+        $(".slot").each(function () {
+            const img = $(this).find(".piece");
+            if (img.length) {
+                allPieces.push(img.detach()[0]);
+            }
+        });
+        $("#source .piece").each(function () {
+            allPieces.push($(this).detach()[0]);
+        });
+        // Mélange le tableau
+        allPieces.sort(() => Math.random() - 0.5);
+        // Vide la source et les slots
+        $("#source").empty().append(allPieces);
         $(".slot").empty();
         $("#result").text("");
         makeDraggable();
@@ -79,9 +91,9 @@ $(function () {
         });
         if (count === 6) {
             if (ok) {
-                $("#result").text("Vous avez gagné").css("color", "green");
+                $("#result").text("Vous avez gagné !").css("color", "green");
             } else {
-                $("#result").text("Vous avez perdu").css("color", "red");
+                $("#result").text("Vous avez perdu !").css("color", "red");
             }
         } else {
             $("#result").text("");
