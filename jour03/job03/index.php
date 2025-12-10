@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Taquin</title>
+    <link rel="stylesheet" href="assets/style.css">
 </head>
 
 <body>
@@ -13,17 +14,18 @@
         <div class="container">
             <h1>Taquin</h1>
             <button>Jouer</button>
+
             <div class="jeu">
-                <div></div>
-                <div class="case-1"></div>
-                <div class="case-2"></div>
-                <div class="case-3"></div>
-                <div class="case-4"></div>
-                <div class="case-5"></div>
-                <div class="case-6"></div>
-                <div class="case-7"></div>
-                <div class="case-8"></div>
-                <div class="case-9"></div>
+                <div class="case"><img src="assets/img/1.png" alt="1"></div>
+                <div class="case"><img src="assets/img/2.png" alt="2"></div>
+                <div class="case"><img src="assets/img/3.png" alt="3"></div>
+                <div class="case"><img src="assets/img/4.png" alt="4"></div>
+                <div class="case"><img src="assets/img/5.png" alt="5"></div>
+                <div class="case"><img src="assets/img/6.png" alt="6"></div>
+                <div class="case"><img src="assets/img/7.png" alt="7"></div>
+                <div class="case"><img src="assets/img/8.png" alt="8"></div>
+                <div class="case"><img src="assets/img/9.png" alt="9"></div>
+                <div class="case empty"></div>
             </div>
 
             <div class="info">
