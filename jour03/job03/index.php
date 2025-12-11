@@ -14,6 +14,7 @@
         <div class="container">
             <h1>Taquin</h1>
             <button>Jouer</button>
+            <button id="reset">Réinitialiser</button>
 
             <div class="jeu">
                 <div class="case"><img src="assets/img/1.png" alt="1"></div>
