@@ -24,16 +24,51 @@
         </nav>
     </header>
 
-    <form action="">
-        <input name="nom" placeholder="Nom" type="text">
-        <input name="prenom" placeholder="Prénom" type="text">
-        <input name="email" placeholder="Email" type="text">
-        <input name="mdp" placeholder="Mot de passe" type="password">
-        <input name="adresse" placeholder="Adresse" type="text">
-        <input name="code" placeholder="Code postal" type="text">
+    <div class="form">
+        <h1>Inscription</h1>
+        <form id="formInscription">
+            <div class="champ">
+                <label for="nom">Nom *</label>
+                <input type="text" id="nom" name="nom" required>
+                <div class="message-erreur" id="erreur-nom"></div>
+            </div>
 
-        <button type="submit">Envoyer</button>
-    </form>
+            <div class="champ">
+                <label for="prenom">Prénom *</label>
+                <input type="text" id="prenom" name="prenom" required>
+                <div class="message-erreur" id="erreur-prenom"></div>
+            </div>
+
+            <div class="champ">
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" required>
+                <div class="message-erreur" id="erreur-email"></div>
+            </div>
+
+            <div class="champ">
+                <label for="mdp">Mot de passe *</label>
+                <input type="password" id="mdp" name="motdepasse" required>
+                <div class="message-erreur" id="erreur-mdp"></div>
+            </div>
+
+            <div class="champ">
+                <label for="adresse">Adresse *</label>
+                <input type="text" id="adresse" name="adresse" required>
+                <div class="message-erreur" id="erreur-adresse"></div>
+            </div>
+
+            <div class="champ">
+                <label for="codepostal">Code postal *</label>
+                <input type="text" id="codepostal" name="codepostal" required>
+                <div class="message-erreur" id="erreur-codepostal"></div>
+            </div>
+
+            <button type="submit">S'inscrire</button>
+        </form>
+        <div class="lien">
+            <p>Déjà un compte ? <a href="connexion.html">Se connecter</a></p>
+        </div>
+    </div>
 
 
 

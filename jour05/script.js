@@ -7,7 +7,7 @@ toggle.addEventListener("click", () => {
 });
 
 
-
+//Inscription
 //Récupère les éléments des formulaires
 const form = document.getElementById("formInscription");
 const nomInput = document.getElementById("nom");
@@ -129,6 +129,170 @@ async function validerMdp() {
 
 //Validation de l'adresse
 async function validerAdresse() {
+    const adresse = adresseInput.value.trim();
+    const erreurAdresse = getElementById("erreur-adresse");
 
+    await attendre(300);
+
+    if (adresse === "") {
+        erreurAdresse.textContent = "Vous devez entrer votre adresse";
+        erreurAdresse.classList.add("visible");
+        adresseInput.classList.add("erreur");
+        adresseInput.classList.remove("valide");
+        return false;
+    }
+
+    if (adresse.length < 5) {
+        erreurAdresse.textContent = "Votre adresse doit contenir au moins 5 caractères";
+        erreurAdresse.classList.add("visible");
+        adresseInput.classList.add("erreur");
+        adresseInput.classList.add("valide");
+        return false;
+    }
+
+    erreurAdresse.classList.remove("visible");
+    adresseInput.classList.remove("erreur");
+    adresseInput.classList.add("valide");
+    return true;
 }
+
+//Validation du code postal
+async function validerCodepostal() {
+    const codepostal = codepostalInput.value.trim();
+    const erreurCodepostal = getElementById("erreur-codepostal");
+
+    await attendre(300);
+
+    if (codepostal === "") {
+        erreurCodepostal.textContent = "Vous devez entrer votre code postal";
+        erreurCodepostal.classList.add("visible");
+        codepostalInput.classList.add("erreur");
+        codepostalInput.remove("valide");
+        return false;
+    }
+
+    const regexCodePostal = /^[0-9]{5}$/;
+
+    if (!regexCodePostal.test(codepostal)) {
+        erreurCodepostal.textContent = "Votre code postal doit contenir 5 chiffres";
+        erreurCodepostal.classList.add("visible");
+        codepostalInput.classList.add("erreur");
+        codepostalInput.classList.remove("valide");
+        return false;
+    }
+
+    erreurCodepostal.classList.remove("visible");
+    codepostalInput.classList.remove("erreur");
+    codepostalInput.classList.add("visible");
+    return true;
+}
+
+//Ecouteurs changements champs
+nomInput.addEventListener("blur", validerNom);
+nomInput.addEventListener("input", validerNom);
+
+prenomInput.addEventListener("blur", validerPrenom);
+prenomInput.addEventListener("input", validerPrenom);
+
+mdpInput.addEventListener("blur", validerMdp);
+mdpInput.addEventListener("input", validerMdp);
+
+emailInput.addEventListener("blur", validerEmail);
+emailInput.addEventListener("input", validerEmail);
+
+adresseInput.addEventListener("blur", validerAdresse);
+adresseInput.addEventListener("input", validerAdresse);
+
+codepostalInput.addEventListener("blur", validerCodepostal);
+codepostalInput.addEventListener("input", validerCodepostal);
+
+//Gestion de la soumission du formulaire
+form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    //Validation de tous les champs
+    const nomValide = await validerNom();
+    const prenomValide = await validerPrenom();
+    const emailValide = await validerEmail();
+    const mdpValide = await validerMdp();
+    const adresseValide = await validerCodepostal();
+    const codepostalValide = await validerCodepostal();
+
+    if (nomValide && prenomValide && emailValide && mdpValide && adresseValide && codepostalValide) {
+        alert("Inscription réussie");
+    }
+});
+
+
+// Connexion
+const formConnexion = document.getElementById("formConnexion");
+const emailConnexion = document.getElementById("email");
+const mdpConnexion = document.getElementById("mdp");
+
+async function validerEmailConnexion() {
+    const email = emailConnexion.value.trim();
+    const erreurEmail = document.getElementById("erreur-email");
+
+    await attendre(300);
+
+    if (email === "") {
+        erreurEmail.textContent = "Vous devez entrer votre email";
+        erreurEmail.classList.add("visible");
+        emailConnexion.classList.add("erreur");
+        emailConnexion.classList.remove("valide");
+        return false;
+    }
+
+    erreurEmail.classList.remove("visible");
+    emailConnexion.classList.remove("erreur");
+    emailConnexion.classList.add("valide");
+    return true;
+}
+
+async function validerMdpConnexion() {
+    const mdp = mdpConnexion.value;
+    const erreurMdp = document.getElementById("erreur-mdp");
+
+    await attendre(300);
+
+    if (mdp === "") {
+        erreurMdp.textContent = "Vous devez entrer votre mot de passe";
+        erreurMdp.classList.add("visible");
+        mdpConnexion.classList.add("erreur");
+        mdpConnexion.classList.remove("valide");
+        return false;
+    }
+
+    if (mdp.length < 8) {
+        erreurMdp.textContent = "Le mot de passe doit contenir au moins 8 caractères";
+        erreurMdp.classList.add("visible");
+        mdpConnexion.classList.add("erreur");
+        mdpConnexion.classList.remove("valide");
+        return false;
+    }
+
+    erreurMdp.classList.remove("visible");
+    mdpConnexion.classList.remove("erreur");
+    mdpConnexion.classList.add("valide");
+    return true;
+}
+
+// Ecouteurs changement champs pour la connexion
+emailConnexion.addEventListener("blur", validerEmailConnexion);
+emailConnexion.addEventListener("input", validerEmailConnexion);
+
+mdpConnexion.addEventListener("blur", validerMdpConnexion);
+mdpConnexion.addEventListener("input", validerMdpConnexion);
+
+// Gestion de soumission de formulaire de connexion
+formConnexion.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const emailValide = await validerEmailConnexion();
+    const mdpValide = await validerMdpConnexion();
+
+    if (emailValide && mdpValide) {
+        alert("Connexion réussie !");
+    }
+});
 
