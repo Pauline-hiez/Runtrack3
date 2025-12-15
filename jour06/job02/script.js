@@ -53,10 +53,28 @@ const bladeRunner = [
 
 document.querySelector(".btn-danger").addEventListener("click", function () {
     const citationAleatoire = bladeRunner[Math.floor(Math.random() * bladeRunner.length)];
-
-    document.querySelector(".card-body2 .card-text").textContent = citationAleatoire;
+    document.querySelector(".col-8 .lead").textContent = citationAleatoire;
 });
 
+//Pagination
+const contenu = [
+    "Fais-le ou ne le fais pas. Il n'y a pas d'essai. Yoda.",
+    "La peur mène à la colère. La colère mène à la haine. La haine mène à la souffrance. Yoda.",
+    "La taille importe peu. Regarde-moi. Est-ce à cause de ma taille que tu me juge ? Yoda."
+];
 
+
+const pagination = document.querySelectorAll(".pagination .page-item a.page-link");
+
+pagination.forEach(function (lien) {
+    lien.addEventListener("click", function (e) {
+        e.preventDefault();
+        const texte = lien.textContent.trim();
+        if (texte === "1" || texte === "2" || texte === "3") {
+            const indexContenu = parseInt(texte) - 1;
+            document.querySelector(".col-8 .lead").textContent = contenu[indexContenu];
+        }
+    });
+});
 
 
