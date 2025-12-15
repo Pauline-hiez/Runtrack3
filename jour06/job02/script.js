@@ -42,4 +42,21 @@ document.querySelector(".card .btn-primary").addEventListener("click", function 
     });
 });
 
+//Boutin rebooter le monde
+const bladeRunner = [
+    "J'ai vu tant de choses que vous, humains, ne pourriez pas croire...",
+    "Révéille-toi ! Il est temps de mourir.",
+    "J'ai peur de mourir.",
+    "Tous ces moments se perdront dans l'oubli, comme les larmes dans la pluie.",
+    "C'est dommage qu'elle ne vive pas ! Mais qui vit éternellement ?"
+];
+
+document.querySelector(".btn-danger").addEventListener("click", function () {
+    const citationAleatoire = bladeRunner[Math.floor(Math.random() * bladeRunner.length)];
+
+    document.querySelector(".card-body2 .card-text").textContent = citationAleatoire;
+});
+
+
+
 
