@@ -78,3 +78,13 @@ pagination.forEach(function (lien) {
 });
 
 
+//Liste groupée
+const liste = document.querySelectorAll(".list-group-item");
+
+liste.forEach(function (element) {
+    element.addEventListener("click", function () {
+        liste.forEach(l => l.classList.remove("active"));
+
+        element.classList.add("active")
+    });
+});
