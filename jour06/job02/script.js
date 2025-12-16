@@ -117,3 +117,55 @@ if (flecheGauche && flecheDroite && progressBar) {
         progressBar.style.width = valeurActuelle + "%";
     });
 }
+
+//Touches D, G, C
+let touches = [];
+
+const modaleFormulaire = `
+<div class="modal fade" id="modaleFormulaire" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Récapitulatif du formulaire</h5>
+      </div>
+      <div class="modal-body" id="recapFormulaire">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+document.body.insertAdjacentHTML("beforeend", modaleFormulaire);
+
+document.addEventListener("keydown", function (e) {
+    const touche = e.key.toLowerCase();
+
+    touches.push(touche);
+
+    if (touches.length > 3) {
+        touches.shift();
+    }
+
+    if (touches.join("") === "dgc") {
+
+
+        const login = document.querySelector('input[placeholder="Login"]').value;
+        const mdp = document.querySelector('input[placeholder="Mot de Passe"]').value;
+        const dogecoin = document.querySelector('input[aria-label="Amount (to the nearest dollar)"]').value;
+        const url = document.querySelector('#basic-url').value;
+
+        document.getElementById("recapFormulaire").innerHTML = `<p><strong>Login :</strong> ${login || 'Non renseigné'}</p>
+      <p><strong>Mot de passe :</strong> ${mdp || 'Non renseigné'}</p>
+      <p><strong>DogeCoin :</strong> ${dogecoin || 'Non renseigné'}</p>
+      <p><strong>URL :</strong> ${url || 'Non renseigné'}</p>
+    `;
+
+        $("#modaleFormulaire").modal("show");
+
+        touches = [];
+
+    }
+});
