@@ -169,3 +169,24 @@ document.addEventListener("keydown", function (e) {
 
     }
 });
+
+//Validation du formulaire
+const formulaire = document.querySelector("form");
+const spinner = document.querySelector(".spinner-border");
+
+formulaire.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const email = document.querySelector("#formGroupExampleInput").value;
+    const password = document.querySelector("#formGroupExampleInput2").value;
+
+    if (email.trim() !== "" && password.trim() !== "") {
+        const couleurs = ["text-primary", "text-secondary", "text-success", "text-danger", "text-warning", "text-info", "text-dark"];
+
+        couleurs.forEach(c => spinner.classList.remove(c));
+
+        const couleurAleatoire = couleurs[Math.floor(Math.random() * couleurs.length)];
+        spinner.classList.add(couleurAleatoire);
+    }
+})
+
