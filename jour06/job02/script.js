@@ -88,3 +88,32 @@ liste.forEach(function (element) {
         element.classList.add("active")
     });
 });
+
+// Flèches - Barre de progression
+const progressBar = document.querySelector(".progress-bar");
+const spans = document.querySelectorAll('.d-flex.justify-content-center.align-items-center.m-5 span');
+let flecheGauche = null;
+let flecheDroite = null;
+spans.forEach(span => {
+    if (span.textContent.includes('⬅︎')) flecheGauche = span;
+    if (span.textContent.includes('➡︎')) flecheDroite = span;
+});
+
+if (flecheGauche && flecheDroite && progressBar) {
+    flecheGauche.style.cursor = "pointer";
+    flecheDroite.style.cursor = "pointer";
+
+    flecheGauche.addEventListener("click", function () {
+        let valeurActuelle = parseInt(progressBar.style.width);
+        valeurActuelle = isNaN(valeurActuelle) ? 0 : valeurActuelle;
+        valeurActuelle = Math.max(0, valeurActuelle - 10);
+        progressBar.style.width = valeurActuelle + "%";
+    });
+
+    flecheDroite.addEventListener("click", function () {
+        let valeurActuelle = parseInt(progressBar.style.width);
+        valeurActuelle = isNaN(valeurActuelle) ? 0 : valeurActuelle;
+        valeurActuelle = Math.min(100, valeurActuelle + 10);
+        progressBar.style.width = valeurActuelle + "%";
+    });
+}
