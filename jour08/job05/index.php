@@ -8,7 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 
-<body class="bg-[url(assets/img/wallpaper.jpg)]">
+<body class="bg-[url(assets/img/wallpaper.jpg)]" style="overflow-x:hidden;">
 
     <header class="bg-sky-400 bg-opacity-5 text-black shadow-lg hidden md:block border-b-4 border-black px-4">
         <div class="container mx-auto flex items-center h-24">
@@ -154,26 +154,62 @@
             </nav>
         </div>
     </header>
+
     <img src="assets/img/holiday-2025-hero-mobile_1.jpg" alt="" class="w-full max-w-screen-xl mx-auto border-4 border-black block mt-8 rounded-2xl">
 
-    <li class="marquee-item marquee-item-html overflow-hidden shrink-0">
-        <div class="text-multi-stroke-mid-gradient-mobile md:text-multi-stroke-mid-gradient font-black italic text-[color:var(--color)] text-[length:var(--font-size-mobile)] lg:text-[length:var(--font-size)]" style="
-                  --font-size: 90px;
-                  --font-size-mobile: 36px;
-                  --color: #f2ece0;
-                  --outer-stroke: 18px #000;
-                  --inner-stroke: 3px #000;
-                  --middle-stroke: 12px transparent;
-                  --outer-stroke-mobile: 7px #000;
-                  --inner-stroke-mobile: 1px #000;
-                  --middle-stroke-mobile: 5px transparent;
-                  --middle-stroke-gradient: linear-gradient(180deg, rgba(251, 82, 0, 1), rgba(93, 60, 114, 1) 100%)" data-content="TARGET">
-            <span>TARGET</span>
-        </div>
-    </li>
+    <div class="whitespace-nowrap flex animate-marquee gap-8 font-black italic uppercase text-[56px] md:text-[90px] tracking-tight" style="color:#f5e7c2; text-shadow: 0 8px 0 #000, 0 12px 8px rgba(251,82,0,0.7);">
+        <span>7-Eleven</span>
+        <span>·</span>
+        <span>Kroger</span>
+        <span>·</span>
+        <span>Sams Club</span>
+        <span>·</span>
+        <span>Albertsons</span>
+        <span>·</span>
+        <span>Costco</span>
+        <span>·</span>
+        <span>Find Us At</span>
+        <span>·</span>
+        <span>Walmart</span>
+        <span>·</span>
+        <span>Target</span>
+        <span>·</span>
+        <span>7-Eleven</span>
+        <span>·</span>
+        <span>Kroger</span>
+        <span>·</span>
+        <span>Sams Club</span>
+        <span>·</span>
+        <span>Albertsons</span>
+        <span>·</span>
+        <span>Costco</span>
+        <span>·</span>
+        <span>Find Us At</span>
+        <span>·</span>
+        <span>Walmart</span>
+        <span>·</span>
+        <span>Target</span>
+        <span>·</span>
+    </div>
+    </div>
+    <style>
+        /* Empêche le scroll horizontal globalement */
+        html,
+        body {
+            overflow-x: hidden;
+        }
 
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
 
+            100% {
+                transform: translateX(-50%);
+            }
+        }
 
-</body>
-
-</html>
+        .animate-marquee {
+            animation: marquee 30s linear infinite;
+        }
+    </style>
