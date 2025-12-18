@@ -10,7 +10,7 @@
 
 <body class="bg-[url(assets/img/wallpaper.jpg)]" style="overflow-x:hidden;">
 
-    <header class="bg-sky-400 bg-opacity-5 text-black shadow-lg hidden md:block border-b-4 border-black px-4">
+    <header class="bg-sky-300 bg-opacity-5 text-black shadow-lg hidden md:block border-b-4 border-black px-4">
         <div class="container mx-auto flex items-center h-24">
             <a href="/" class="flex items-center justify-center">
                 <img class="h-16" src="assets/img/Feastables_Rebrand_Non_Tilted.avif" alt="Logo" />
@@ -213,11 +213,115 @@
         }
     </style>
 
-
     <div class="relative w-full max-w-screen-xl mx-auto mt-8">
         <img src="assets/img/beastgames-prem-hero-mobile.jpg" alt="" class="w-full border-4 border-black block rounded-2xl">
         <button class="absolute right-32 bottom-40 py-2 px-5 rounded-lg bg-pink-600 text-black font-bold italic text-3xl transition border-3 border-black hover:drop-shadow-[2px_2px_0_#000000]">LEARN MORE</button>
         <p class="absolute right-2 bottom-2 text-xs text-black font-bold bg-opacity-60 px-2 py-1 rounded max-w-[90%] text-right pointer-events-none select-none m-5" style="font-size:10px;">
             NO PURCHASE NECESSARY TO ENTER OR WIN. Takes place from 11/19/25 at 12:00 a.m. CT to 12/19/25 at 11:59 p.m. CT. Open <br>only to legal U.S. residents residing in the 50 U.S./D.C., Puerto Rico and U.S. Territories and Possessions, who are 18 or older. To enter <br> without purchase, go to https://fstbls.com/vn6zmu, and follow the instructions to request an AMOE. Each request is equal to 2 entries <br> into the Sweepstakes. See Official Rules at https://fstbls.com/9nsk93 for details on how to enter without purchase, additional <br> eligibility restrictions and complete details. Odds of winning depend on the number of eligible entries received. Void where <br> prohibited. Sponsor: Feastables, Inc., 167 N Green Street, Chicago, IL 60607
         </p>
+    </div>
+
+    <div class="bg-sky-400 py-12 px-4">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-start gap-8">
+            <div class="flex-1 flex flex-col justify-center items-start mb-8 md:mb-0 md:pl-8">
+                <h2 class="text-5xl md:text-6xl font-black leading-tight mb-4">SHOP OUR<br>WORLD'S BEST<br>CHOCOLATE</h2>
+                <p class="text-xl font-bold mb-6">Show you care how your<br>chocolate is sourced</p>
+                <button class="bg-blue-900 text-white font-black italic text-2xl px-12 py-4 rounded-xl border-4 border-black hover:bg-blue-800 transition">SHOP ALL</button>
+            </div>
+            <div class="flex-[2] overflow-x-auto pb-4 pt-0 overflow-visible">
+                <div class="flex gap-6 overflow-visible pt-0">
+                    <div class="relative min-w-[280px] flex flex-col items-center group">
+                        <img src="assets/img/shop/cane.webp" alt="Pretzel Mint Crunch Cane" class="h-64 object-contain -mt-12 z-20 relative block group-hover:hidden">
+                        <img src="assets/img/shop/cane-hover.webp" alt="Pretzel Mint Crunch Cane Hover" class="h-64 object-contain -mt-12 z-20 relative hidden group-hover:block">
+                        <div class="bg-white rounded-2xl shadow-xl border-2 border-gray-200 flex flex-col items-center p-6 pt-20 w-full -mt-16 z-10 relative">
+                            <h3 class="text-xl font-black text-center mb-4">Pretzel Mint Crunch Cane</h3>
+                            <button class="bg-red-600 text-white font-black text-base rounded-lg px-10 py-3 mt-2 border-2 border-black hover:bg-red-700 transition w-full">FIND A STORE</button>
+                        </div>
+                    </div>
+                    <div class="relative min-w-[280px] flex flex-col items-center group">
+                        <img src="assets/img/shop/mint.webp" alt="Pretzel Mint Crunch" class="h-64 object-contain -mt-12 z-20 relative block group-hover:hidden">
+                        <img src="assets/img/shop/mint-hover.webp" alt="Pretzel Mint Crunch Hover" class="h-64 object-contain -mt-12 z-20 relative hidden group-hover:block">
+                        <div class="bg-white rounded-2xl shadow-xl border-2 border-gray-200 flex flex-col items-center p-6 pt-20 w-full -mt-16 z-10 relative">
+                            <h3 class="text-xl font-black text-center mb-2">Pretzel Mint Crunch</h3>
+                            <span class="text-lg font-bold mb-3">$39.99</span>
+                            <button class="bg-red-600 text-white font-black text-base rounded-lg px-10 py-3 mt-2 border-2 border-black hover:bg-red-700 transition w-full">ADD TO BAG</button>
+                        </div>
+                    </div>
+                    <div class="relative min-w-[280px] flex flex-col items-center group">
+                        <img src="assets/img/shop/hot-cocoa.webp" alt="Hot Cocoa Crunch" class="h-64 object-contain -mt-12 z-20 relative block group-hover:hidden">
+                        <img src="assets/img/shop/hot-cocoa-hover.webp" alt="Hot Cocoa Crunch Hover" class="h-64 object-contain -mt-12 z-20 relative hidden group-hover:block">
+                        <div class="bg-white rounded-2xl shadow-xl border-2 border-gray-200 flex flex-col items-center p-6 pt-20 w-full -mt-16 z-10 relative">
+                            <h3 class="text-xl font-black text-center mb-2">Hot Cocoa Crunch</h3>
+                            <span class="text-lg font-bold mb-3">$39.99</span>
+                            <button class="bg-red-600 text-white font-black text-base rounded-lg px-10 py-3 mt-2 border-2 border-black hover:bg-red-700 transition w-full">ADD TO BAG</button>
+                        </div>
+                    </div>
+                    <div class="relative min-w-[280px] flex flex-col items-center group">
+                        <img src="assets/img/shop/snowman.webp" alt="Snowman" class="h-64 object-contain -mt-12 z-20 relative block group-hover:hidden">
+                        <img src="assets/img/shop/snowman-hover.webp" alt="Snowman Hover" class="h-64 object-contain -mt-12 z-20 relative hidden group-hover:block">
+                        <div class="bg-white rounded-2xl shadow-xl border-2 border-gray-200 flex flex-col items-center p-6 pt-20 w-full -mt-16 z-10 relative">
+                            <h3 class="text-xl font-black text-center mb-2">Snowman</h3>
+                            <span class="text-lg font-bold mb-3">$39.99</span>
+                            <button class="bg-red-600 text-white font-black text-base rounded-lg px-10 py-3 mt-2 border-2 border-black hover:bg-red-700 transition w-full">ADD TO BAG</button>
+                        </div>
+                    </div>
+                    <div class="relative min-w-[280px] flex flex-col items-center group">
+                        <img src="assets/img/shop/caramel.webp" alt="Caramel" class="h-64 object-contain -mt-12 z-20 relative block group-hover:hidden">
+                        <img src="assets/img/shop/caramel-hover.webp" alt="Caramel Hover" class="h-64 object-contain -mt-12 z-20 relative hidden group-hover:block">
+                        <div class="bg-white rounded-2xl shadow-xl border-2 border-gray-200 flex flex-col items-center p-6 pt-20 w-full -mt-16 z-10 relative">
+                            <h3 class="text-xl font-black text-center mb-2">Caramel</h3>
+                            <span class="text-lg font-bold mb-3">$39.99</span>
+                            <button class="bg-red-600 text-white font-black text-base rounded-lg px-10 py-3 mt-2 border-2 border-black hover:bg-red-700 transition w-full">ADD TO BAG</button>
+                        </div>
+                    </div>
+                    <div class="relative min-w-[280px] flex flex-col items-center group">
+                        <img src="assets/img/shop/milk.webp" alt="Milk" class="h-64 object-contain -mt-12 z-20 relative block group-hover:hidden">
+                        <img src="assets/img/shop/milk-hover.webp" alt="Milk Hover" class="h-64 object-contain -mt-12 z-20 relative hidden group-hover:block">
+                        <div class="bg-white rounded-2xl shadow-xl border-2 border-gray-200 flex flex-col items-center p-6 pt-20 w-full -mt-16 z-10 relative">
+                            <h3 class="text-xl font-black text-center mb-2">Milk</h3>
+                            <span class="text-lg font-bold mb-3">$39.99</span>
+                            <button class="bg-red-600 text-white font-black text-base rounded-lg px-10 py-3 mt-2 border-2 border-black hover:bg-red-700 transition w-full">ADD TO BAG</button>
+                        </div>
+                    </div>
+                    <div class="relative min-w-[280px] flex flex-col items-center group">
+                        <img src="assets/img/shop/rasp.webp" alt="Rasp" class="h-64 object-contain -mt-12 z-20 relative block group-hover:hidden">
+                        <img src="assets/img/shop/rasp-hover.webp" alt="Rasp Hover" class="h-64 object-contain -mt-12 z-20 relative hidden group-hover:block">
+                        <div class="bg-white rounded-2xl shadow-xl border-2 border-gray-200 flex flex-col items-center p-6 pt-20 w-full -mt-16 z-10 relative">
+                            <h3 class="text-xl font-black text-center mb-2">Rasp</h3>
+                            <span class="text-lg font-bold mb-3">$39.99</span>
+                            <button class="bg-red-600 text-white font-black text-base rounded-lg px-10 py-3 mt-2 border-2 border-black hover:bg-red-700 transition w-full">ADD TO BAG</button>
+                        </div>
+                    </div>
+                    <div class="relative min-w-[280px] flex flex-col items-center group">
+                        <img src="assets/img/shop/assorted.webp" alt="Assorted" class="h-64 object-contain -mt-12 z-20 relative block group-hover:hidden">
+                        <img src="assets/img/shop/assorted-hover.webp" alt="Assorted Hover" class="h-64 object-contain -mt-12 z-20 relative hidden group-hover:block">
+                        <div class="bg-white rounded-2xl shadow-xl border-2 border-gray-200 flex flex-col items-center p-6 pt-20 w-full -mt-16 z-10 relative">
+                            <h3 class="text-xl font-black text-center mb-2">Assorted</h3>
+                            <span class="text-lg font-bold mb-3">$39.99</span>
+                            <button class="bg-red-600 text-white font-black text-base rounded-lg px-10 py-3 mt-2 border-2 border-black hover:bg-red-700 transition w-full">ADD TO BAG</button>
+                        </div>
+                    </div>
+                    <div class="relative min-w-[280px] flex flex-col items-center group">
+                        <img src="assets/img/shop/butter.webp" alt="Butter" class="h-64 object-contain -mt-12 z-20 relative block group-hover:hidden">
+                        <img src="assets/img/shop/butter-hover.webp" alt="Butter Hover" class="h-64 object-contain -mt-12 z-20 relative hidden group-hover:block">
+                        <div class="bg-white rounded-2xl shadow-xl border-2 border-gray-200 flex flex-col items-center p-6 pt-20 w-full -mt-16 z-10 relative">
+                            <h3 class="text-xl font-black text-center mb-2">Butter</h3>
+                            <span class="text-lg font-bold mb-3">$39.99</span>
+                            <button class="bg-red-600 text-white font-black text-base rounded-lg px-10 py-3 mt-2 border-2 border-black hover:bg-red-700 transition w-full">ADD TO BAG</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flex justify-center mt-8 gap-2">
+            <span class="w-3 h-3 rounded-full border-2 border-black bg-blue-900"></span>
+            <span class="w-3 h-3 rounded-full border-2 border-black bg-white"></span>
+            <span class="w-3 h-3 rounded-full border-2 border-black bg-white"></span>
+            <span class="w-3 h-3 rounded-full border-2 border-black bg-white"></span>
+            <span class="w-3 h-3 rounded-full border-2 border-black bg-white"></span>
+            <span class="w-3 h-3 rounded-full border-2 border-black bg-white"></span>
+            <span class="w-3 h-3 rounded-full border-2 border-black bg-white"></span>
+            <span class="w-3 h-3 rounded-full border-2 border-black bg-white"></span>
+            <span class="w-3 h-3 rounded-full border-2 border-black bg-white"></span>
+        </div>
     </div>
