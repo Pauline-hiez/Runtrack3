@@ -323,3 +323,88 @@
             <span class="w-3 h-3 rounded-full border-2 border-black bg-white"></span>
         </div>
     </div>
+
+    <div>
+        <div class="relative bg-blue-500 w-full overflow-hidden" style="min-height:480px;">
+            <img src="assets/img/vague-caramel.png" alt="" class="w-full block m-0 p-0 border-0 select-none pointer-events-none">
+            <div class="absolute inset-0 flex flex-col items-center justify-center">
+                <span class="block -rotate-6 bg-white px-4 py-1 text-pink-600 font-black text-3xl md:text-4xl border-4 border-pink-600 shadow-lg mb-2 tracking-tight italic" style="margin-left:-2rem; margin-bottom:0.5rem; text-shadow:0 2px 0 #000;">FEASTABLES</span>
+                <span class="block text-white text-5xl md:text-7xl font-black text-center leading-tight animate-shadow-perspective" style="text-shadow: 8px 12px 0 #000, 0 2px 0 #000, 0 8px 8px rgba(0,0,0,0.7); -webkit-text-stroke: 2px #000; text-stroke: 2px #000;">
+                    A FLAVOR FOR <br class="hidden md:block">EVERY CRAVING
+                </span>
+                <style>
+                    @keyframes shadowPerspective {
+                        0% {
+                            text-shadow: 8px 12px 0 #000, 0 2px 0 #000, 0 8px 8px rgba(0, 0, 0, 0.7);
+                        }
+
+                        40% {
+                            text-shadow: 8px 12px 0 transparent, 0 2px 0 transparent, 0 8px 8px transparent;
+                        }
+
+                        60% {
+                            text-shadow: 8px 12px 0 transparent, 0 2px 0 transparent, 0 8px 8px transparent;
+                        }
+
+                        100% {
+                            text-shadow: 8px 12px 0 #000, 0 2px 0 #000, 0 8px 8px rgba(0, 0, 0, 0.7);
+                        }
+                    }
+
+                    .animate-shadow-perspective {
+                        animation: shadowPerspective 2.5s ease-in-out infinite;
+                    }
+                </style>
+            </div>
+        </div>
+    </div>
+
+    <div class="w-full bg-sky-400 py-12 flex flex-wrap justify-center gap-6">
+        <div class="flex flex-col items-center w-64">
+            <div class="border-2 border-black rounded-xl overflow-hidden bg-black">
+                <video src="https://cdn.shopify.com/videos/c/vp/d7bfc792894548c4896b1ffd53666daa/d7bfc792894548c4896b1ffd53666daa.HD-720p-1.6Mbps-44743994.mp4" class="w-64 h-80 object-cover" controls poster="assets/img/shop/milk.webp"></video>
+            </div>
+            <div class="flex items-center border-2 border-black rounded-b-xl bg-white w-full px-2 py-3 mt-0">
+                <img src="assets/img/shop/milk.webp" alt="Milk Chocolate" class="w-12 h-12 object-contain mr-2">
+                <span class="font-black text-lg">MILK CHOCOLATE</span>
+            </div>
+        </div>
+        <div class="flex flex-col items-center w-64">
+            <div class="border-2 border-black rounded-xl overflow-hidden bg-black">
+                <iframe width="100%" height="320" src="https://www.youtube.com/embed/W0iQguIT_yE?si=WmcmNXiaX5Km9L7V" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="flex items-center border-2 border-black rounded-b-xl bg-white w-full px-2 py-3 mt-0">
+                <img src="assets/img/shop/mint.webp" alt="Milk Crunch" class="w-12 h-12 object-contain mr-2">
+                <span class="font-black text-lg">MILK CRUNCH</span>
+            </div>
+        </div>
+        <div class="flex flex-col items-center w-64">
+            <div class="border-2 border-black rounded-xl overflow-hidden bg-black">
+                <iframe width="100%" height="320" src="https://www.youtube.com/embed/AT-ElP8uSTE?si=qzYJqHUmGTiNfzox" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="flex items-center border-2 border-black rounded-b-xl bg-white w-full px-2 py-3 mt-0">
+                <img src="assets/img/shop/butter.webp" alt="Peanut Butter Cups" class="w-12 h-12 object-contain mr-2">
+                <span class="font-black text-lg">PEANUT BUTTER CUPS</span>
+            </div>
+        </div>
+        <!-- Video Card 4 -->
+        <div class="flex flex-col items-center w-64">
+            <div class="border-2 border-black rounded-xl overflow-hidden bg-black">
+                <video src="https://cdn.shopify.com/videos/c/vp/4bfc792894548c4896b1ffd53666daa/4bfc792894548c4896b1ffd53666daa.HD-720p-1.6Mbps-44743994.mp4" class="w-64 h-80 object-cover" controls poster="assets/img/shop/dark.webp"></video>
+            </div>
+            <div class="flex items-center border-2 border-black rounded-b-xl bg-white w-full px-2 py-3 mt-0">
+                <img src="assets/img/shop/dark.webp" alt="Dark Chocolate" class="w-12 h-12 object-contain mr-2">
+                <span class="font-black text-lg">DARK CHOCOLATE</span>
+            </div>
+        </div>
+        <!-- Video Card 5 -->
+        <div class="flex flex-col items-center w-64">
+            <div class="border-2 border-black rounded-xl overflow-hidden bg-black">
+                <video src="https://cdn.shopify.com/videos/c/vp/5bfc792894548c4896b1ffd53666daa/5bfc792894548c4896b1ffd53666daa.HD-720p-1.6Mbps-44743994.mp4" class="w-64 h-80 object-cover" controls poster="assets/img/shop/cookies.webp"></video>
+            </div>
+            <div class="flex items-center border-2 border-black rounded-b-xl bg-white w-full px-2 py-3 mt-0">
+                <img src="assets/img/shop/cookies.webp" alt="Cookies & Creme" class="w-12 h-12 object-contain mr-2">
+                <span class="font-black text-lg">COOKIES & CREME</span>
+            </div>
+        </div>
+    </div>
