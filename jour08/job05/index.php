@@ -193,7 +193,6 @@
     </div>
     </div>
     <style>
-        /* Empêche le scroll horizontal globalement */
         html,
         body {
             overflow-x: hidden;
@@ -213,3 +212,12 @@
             animation: marquee 30s linear infinite;
         }
     </style>
+
+
+    <div class="relative w-full max-w-screen-xl mx-auto mt-8">
+        <img src="assets/img/beastgames-prem-hero-mobile.jpg" alt="" class="w-full border-4 border-black block rounded-2xl">
+        <button class="absolute right-32 bottom-40 py-2 px-5 rounded-lg bg-pink-600 text-black font-bold italic text-3xl transition border-3 border-black hover:drop-shadow-[2px_2px_0_#000000]">LEARN MORE</button>
+        <p class="absolute right-2 bottom-2 text-xs text-black font-bold bg-opacity-60 px-2 py-1 rounded max-w-[90%] text-right pointer-events-none select-none m-5" style="font-size:10px;">
+            NO PURCHASE NECESSARY TO ENTER OR WIN. Takes place from 11/19/25 at 12:00 a.m. CT to 12/19/25 at 11:59 p.m. CT. Open <br>only to legal U.S. residents residing in the 50 U.S./D.C., Puerto Rico and U.S. Territories and Possessions, who are 18 or older. To enter <br> without purchase, go to https://fstbls.com/vn6zmu, and follow the instructions to request an AMOE. Each request is equal to 2 entries <br> into the Sweepstakes. See Official Rules at https://fstbls.com/9nsk93 for details on how to enter without purchase, additional <br> eligibility restrictions and complete details. Odds of winning depend on the number of eligible entries received. Void where <br> prohibited. Sponsor: Feastables, Inc., 167 N Green Street, Chicago, IL 60607
+        </p>
+    </div>
