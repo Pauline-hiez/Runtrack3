@@ -503,7 +503,15 @@
     </div>
 
     <div class="relative w-full mx-auto mt-10 mb-10 rounded-2xl border-4 border-black bg-gradient-to-b from-rose-400 to-red-500 shadow-xl overflow-hidden">
-        <div class="absolute left-0 top-0 w-full flex flex-row items-start justify-between z-10 pointer-events-none select-none" style="height:80px;">
+        <div class="absolute left-0 right-0 flex flex-col justify-center items-center pointer-events-none select-none z-0 w-[calc(100%-2rem)] mx-auto px-8 md:px-16 overflow-hidden" style="gap:0;">
+            <span class="block text-[90px] md:text-[150px] font-black text-white opacity-20 leading-none overflow-hidden animate-scroll-left whitespace-nowrap">WANT FEASTABLE NOW?&nbsp;WANT FEASTABLE NOW?&nbsp;WANT FEASTABLE NOW?</span>
+            <span class="block text-[90px] md:text-[150px] font-black text-transparent outline-text opacity-30 leading-none overflow-hidden animate-scroll-right whitespace-nowrap">WANT FEASTABLE NOW?&nbsp;WANT FEASTABLE NOW?&nbsp;WANT FEASTABLE NOW?</span>
+            <span class="block text-[90px] md:text-[150px] font-black text-white opacity-20 leading-none overflow-hidden animate-scroll-left whitespace-nowrap">WANT FEASTABLE NOW?&nbsp;WANT FEASTABLE NOW?&nbsp;WANT FEASTABLE NOW?</span>
+            <span class="block text-[90px] md:text-[150px] font-black text-transparent outline-text opacity-30 leading-none overflow-hidden animate-scroll-right whitespace-nowrap">WANT FEASTABLE NOW?&nbsp;WANT FEASTABLE NOW?&nbsp;WANT FEASTABLE NOW?</span>
+        </div>
+
+        <div class="absolute inset-0 m-4 rounded-2xl border-4 border-black pointer-events-none select-none z-10"></div>
+        <div class="absolute left-0 right-0 flex flex-row items-start justify-between z-20 pointer-events-none select-none w-[calc(100%-2rem)] mx-auto" style="height:80px;">
             <img src="assets/img/nuage.png" alt="cloud" class="cloud-anim cloud-sm" />
             <img src="assets/img/nuage.png" alt="cloud" class="cloud-anim cloud-md" />
             <img src="assets/img/nuage.png" alt="cloud" class="cloud-anim cloud-lg" />
@@ -511,25 +519,66 @@
             <img src="assets/img/nuage.png" alt="cloud" class="cloud-anim cloud-sm" />
         </div>
 
-        <h2 class="text-6xl md:text-7xl font-black text-white text-center drop-shadow-[4px_4px_0_#0ea5e9] pt-16 pb-6 tracking-tight relative z-10 flex items-center justify-center gap-4">
+        <h2 class="text-6xl md:text-7xl font-black text-white text-center drop-shadow-[4px_4px_0_#0ea5e9] pt-16 pb-6 tracking-tight relative z-30 flex items-center justify-center gap-4">
             <span class="relative">WHERE TO BUY</span>
         </h2>
 
-        <div class="flex flex-wrap justify-center items-center gap-8 px-8 pb-8">
-            <img src="assets/img/walmart.svg" alt="Walmart" class="bg-white rounded-lg border-2 border-black shadow-md p-2 w-48 h-20 object-contain" />
-            <img src="assets/img/7-eleven.avif" alt="7-Eleven" class="bg-white rounded-lg border-2 border-black shadow-md p-2 w-48 h-20 object-contain" />
-            <img src="assets/img/target.avif" alt="Target" class="bg-white rounded-lg border-2 border-black shadow-md p-2 w-48 h-20 object-contain" />
-            <img src="assets/img/kroger.svg" alt="Kroger" class="bg-white rounded-lg border-2 border-black shadow-md p-2 w-48 h-20 object-contain" />
-            <img src="assets/img/sams-club.avif" alt="Sam's Club" class="bg-white rounded-lg border-2 border-black shadow-md p-2 w-48 h-20 object-contain" />
-            <img src="assets/img/albertsons.svg" alt="Albertsons" class="bg-white rounded-lg border-2 border-black shadow-md p-2 w-48 h-20 object-contain" />
-            <img src="assets/img/costco.avif" alt="Costco" class="bg-white rounded-lg border-2 border-black shadow-md p-2 w-48 h-20 object-contain" />
+        <div class="flex flex-col items-center justify-center gap-6 px-8 pb-8 relative z-30">
+            <div class="flex flex-row justify-center items-center gap-8">
+                <img src="assets/img/walmart.svg" alt="Walmart" class="bg-white rounded-lg border-2 border-black shadow-md p-2 w-48 h-20 object-contain" />
+                <img src="assets/img/7-eleven.avif" alt="7-Eleven" class="bg-white rounded-lg border-2 border-black shadow-md p-2 w-48 h-20 object-contain" />
+                <img src="assets/img/target.avif" alt="Target" class="bg-white rounded-lg border-2 border-black shadow-md p-2 w-48 h-20 object-contain" />
+            </div>
+            <div class="flex flex-row justify-center items-center gap-8">
+                <img src="assets/img/kroger.svg" alt="Kroger" class="bg-white rounded-lg border-2 border-black shadow-md p-2 w-48 h-20 object-contain" />
+                <img src="assets/img/sams-club.avif" alt="Sam's Club" class="bg-white rounded-lg border-2 border-black shadow-md p-2 w-48 h-20 object-contain" />
+                <img src="assets/img/albertsons.svg" alt="Albertsons" class="bg-white rounded-lg border-2 border-black shadow-md p-2 w-48 h-20 object-contain" />
+            </div>
+            <div class="flex flex-row justify-center items-center gap-8">
+                <img src="assets/img/costco.avif" alt="Costco" class="bg-white rounded-lg border-2 border-black shadow-md p-2 w-48 h-20 object-contain" />
+                <span class="text-2xl font-black text-white drop-shadow-[2px_2px_0_#000] mb-2 flex items-center">&nbsp; & MORE</span>
+            </div>
         </div>
 
-        <div class="flex flex-col items-center pb-12">
-            <span class="text-2xl font-black text-white drop-shadow-[2px_2px_0_#000] mb-2">& MORE</span>
-            <button class="mt-2 px-10 py-4 bg-yellow-300 text-black font-black text-2xl rounded-xl border-4 border-black shadow-lg hover:bg-yellow-400 transition">FIND A STORE</button>
+        <div class="flex flex-col items-center pb-12 relative z-30">
+            <button class="mt-2 px-10 py-4 bg-yellow-300 text-black font-black text-2xl rounded-xl border-4 border-black shadow-lg hover:drop-shadow-[2px_2px_0_#000000] cursor-pointer mt-auto transition">FIND A STORE</button>
         </div>
     </div>
+    <style>
+        .outline-text {
+            -webkit-text-stroke: 3px #fff;
+            text-stroke: 3px #fff;
+            color: transparent;
+        }
+
+        @keyframes scrollLeft {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-30%);
+            }
+        }
+
+        @keyframes scrollRight {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(30%);
+            }
+        }
+
+        .animate-scroll-left {
+            animation: scrollLeft 24s linear infinite;
+        }
+
+        .animate-scroll-right {
+            animation: scrollRight 24s linear infinite;
+        }
+    </style>
 </body>
 
 </html>
