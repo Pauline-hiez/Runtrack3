@@ -211,6 +211,51 @@
         .animate-marquee {
             animation: marquee 30s linear infinite;
         }
+
+        @keyframes cloudUpDown {
+            0% {
+                transform: translateY(0);
+            }
+
+            25% {
+                transform: translateY(-18px);
+            }
+
+            50% {
+                transform: translateY(0);
+            }
+
+            75% {
+                transform: translateY(18px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        .cloud-anim {
+            animation: cloudUpDown 3s ease-in-out infinite;
+            display: inline-block;
+        }
+
+        .cloud-sm {
+            width: 60px;
+            height: 40px;
+            animation-delay: 0s;
+        }
+
+        .cloud-md {
+            width: 90px;
+            height: 60px;
+            animation-delay: 0.7s;
+        }
+
+        .cloud-lg {
+            width: 130px;
+            height: 80px;
+            animation-delay: 1.4s;
+        }
     </style>
 
     <div class="relative w-full max-w-screen-xl mx-auto m-8">
@@ -328,7 +373,55 @@
         <div class="relative bg-blue-500 w-full overflow-hidden" style="min-height:480px;">
             <img src="assets/img/vague-caramel.png" alt="" class="w-full block m-0 p-0 border-0 select-none pointer-events-none">
             <div class="absolute inset-0 flex flex-col items-center justify-center">
-                <span class="block -rotate-6 bg-white px-4 py-1 text-pink-600 font-black text-3xl md:text-4xl border-4 border-pink-600 shadow-lg mb-2 tracking-tight italic" style="margin-left:-2rem; margin-bottom:0.5rem; text-shadow:0 2px 0 #000;">FEASTABLES</span>
+                <span class="block -rotate-6 bg-white px-4 py-1 text-pink-600 font-black text-3xl md:text-4xl border-4 border-pink-600 shadow-lg mb-2 tracking-tight italic swing-animation" style="margin-left:-2rem; margin-bottom:0.5rem; text-shadow:0 2px 0 #000;">FEASTABLES</span>
+                <style>
+                    @keyframes swing {
+                        0% {
+                            transform: rotate(-6deg);
+                        }
+
+                        10% {
+                            transform: rotate(-12deg);
+                        }
+
+                        20% {
+                            transform: rotate(-6deg);
+                        }
+
+                        30% {
+                            transform: rotate(0deg);
+                        }
+
+                        40% {
+                            transform: rotate(6deg);
+                        }
+
+                        50% {
+                            transform: rotate(0deg);
+                        }
+
+                        60% {
+                            transform: rotate(-6deg);
+                        }
+
+                        70% {
+                            transform: rotate(-12deg);
+                        }
+
+                        80% {
+                            transform: rotate(-6deg);
+                        }
+
+                        100% {
+                            transform: rotate(-6deg);
+                        }
+                    }
+
+                    .swing-animation {
+                        animation: swing 2s cubic-bezier(.36, .07, .19, .97) infinite;
+                        display: inline-block;
+                    }
+                </style>
                 <span class="block text-white text-5xl md:text-7xl font-black text-center leading-tight animate-shadow-perspective" style="text-shadow: 8px 12px 0 #000, 0 2px 0 #000, 0 8px 8px rgba(0,0,0,0.7); -webkit-text-stroke: 2px #000; text-stroke: 2px #000;">
                     A FLAVOR FOR <br class="hidden md:block">EVERY CRAVING
                 </span>
@@ -397,7 +490,7 @@
                 <span class="font-black text-lg">DARK CHOCOLATE</span>
             </div>
         </div>
-        <!-- Video Card 5 -->
+
         <div class="flex flex-col items-center w-64">
             <div class="border-2 border-black rounded-xl overflow-hidden bg-black">
                 <video src="https://cdn.shopify.com/videos/c/vp/5bfc792894548c4896b1ffd53666daa/5bfc792894548c4896b1ffd53666daa.HD-720p-1.6Mbps-44743994.mp4" class="w-64 h-80 object-cover" controls poster="assets/img/shop/cookies.webp"></video>
@@ -408,3 +501,35 @@
             </div>
         </div>
     </div>
+
+    <div class="relative w-full mx-auto mt-10 mb-10 rounded-2xl border-4 border-black bg-gradient-to-b from-rose-400 to-red-500 shadow-xl overflow-hidden">
+        <div class="absolute left-0 top-0 w-full flex flex-row items-start justify-between z-10 pointer-events-none select-none" style="height:80px;">
+            <img src="assets/img/nuage.png" alt="cloud" class="cloud-anim cloud-sm" />
+            <img src="assets/img/nuage.png" alt="cloud" class="cloud-anim cloud-md" />
+            <img src="assets/img/nuage.png" alt="cloud" class="cloud-anim cloud-lg" />
+            <img src="assets/img/nuage.png" alt="cloud" class="cloud-anim cloud-md" />
+            <img src="assets/img/nuage.png" alt="cloud" class="cloud-anim cloud-sm" />
+        </div>
+
+        <h2 class="text-6xl md:text-7xl font-black text-white text-center drop-shadow-[4px_4px_0_#0ea5e9] pt-16 pb-6 tracking-tight relative z-10 flex items-center justify-center gap-4">
+            <span class="relative">WHERE TO BUY</span>
+        </h2>
+
+        <div class="flex flex-wrap justify-center items-center gap-8 px-8 pb-8">
+            <img src="assets/img/walmart.svg" alt="Walmart" class="bg-white rounded-lg border-2 border-black shadow-md p-2 w-48 h-20 object-contain" />
+            <img src="assets/img/7-eleven.avif" alt="7-Eleven" class="bg-white rounded-lg border-2 border-black shadow-md p-2 w-48 h-20 object-contain" />
+            <img src="assets/img/target.avif" alt="Target" class="bg-white rounded-lg border-2 border-black shadow-md p-2 w-48 h-20 object-contain" />
+            <img src="assets/img/kroger.svg" alt="Kroger" class="bg-white rounded-lg border-2 border-black shadow-md p-2 w-48 h-20 object-contain" />
+            <img src="assets/img/sams-club.avif" alt="Sam's Club" class="bg-white rounded-lg border-2 border-black shadow-md p-2 w-48 h-20 object-contain" />
+            <img src="assets/img/albertsons.svg" alt="Albertsons" class="bg-white rounded-lg border-2 border-black shadow-md p-2 w-48 h-20 object-contain" />
+            <img src="assets/img/costco.avif" alt="Costco" class="bg-white rounded-lg border-2 border-black shadow-md p-2 w-48 h-20 object-contain" />
+        </div>
+
+        <div class="flex flex-col items-center pb-12">
+            <span class="text-2xl font-black text-white drop-shadow-[2px_2px_0_#000] mb-2">& MORE</span>
+            <button class="mt-2 px-10 py-4 bg-yellow-300 text-black font-black text-2xl rounded-xl border-4 border-black shadow-lg hover:bg-yellow-400 transition">FIND A STORE</button>
+        </div>
+    </div>
+</body>
+
+</html>
