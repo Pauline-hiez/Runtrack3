@@ -12,10 +12,30 @@
 <body>
 
     <div class="flex flex-col items-center justify-center min-h-screen bg-[#1a1725]">
-        <div class="relative w-96 h-96 rounded-full bg-[#232033]" style="box-shadow: 0 0 60px 10px #a78bfa44;">
-            <div id="hand-hour" class="hand hand-hour"></div>
-            <div id="hand-minute" class="hand hand-minute"></div>
-            <div id="hand-second" class="hand hand-second"></div>
+        <h2 class="text-white text-center text-6xl font-bold mb-8">Horloge</h2>
+        <div class="relative w-96 h-96 rounded-full bg-[#232033] shadow-horloge">
+            <!-- Chiffres de l'horloge -->
+            <div class="clock-number clock-number-12">12</div>
+            <div class="clock-number clock-number-1">1</div>
+            <div class="clock-number clock-number-2">2</div>
+            <div class="clock-number clock-number-3">3</div>
+            <div class="clock-number clock-number-4">4</div>
+            <div class="clock-number clock-number-5">5</div>
+            <div class="clock-number clock-number-6">6</div>
+            <div class="clock-number clock-number-7">7</div>
+            <div class="clock-number clock-number-8">8</div>
+            <div class="clock-number clock-number-9">9</div>
+            <div class="clock-number clock-number-10">10</div>
+            <div class="clock-number clock-number-11">11</div>
+            <div id="hand-hour"
+                class="absolute left-1/2 top-1/2 origin-bottom bg-white rounded-full w-[6px] h-[60px] -ml-[3px] -mt-[60px]">
+            </div>
+            <div id="hand-minute"
+                class="absolute left-1/2 top-1/2 origin-bottom bg-white rounded-full w-[4px] h-[90px] -ml-[2px] -mt-[90px]">
+            </div>
+            <div id="hand-second"
+                class="absolute left-1/2 top-1/2 origin-bottom bg-[#a78bfa] rounded-full w-[2px] h-[100px] -ml-[1px] -mt-[100px] shadow-[0_0_10px_#a78bfa]">
+            </div>
             <div class="absolute w-4 h-4 bg-white rounded-full left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
             </div>
         </div>

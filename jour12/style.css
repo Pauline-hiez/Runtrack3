@@ -1,31 +1,63 @@
-.hand {
+.shadow-horloge {
+    box-shadow: 0 0 60px 10px #a78bfa44;
+}
+
+/* Chiffres de l'horloge positionnés en cercle */
+.clock-number {
     position: absolute;
     left: 50%;
     top: 50%;
-    transform-origin: bottom center;
-    background: white;
-    border-radius: 9999px;
+    color: #fff;
+    font-size: 1.25rem;
+    user-select: none;
+    transform: translate(-50%, -50%);
+    font-family: monospace;
 }
 
-.hand-hour {
-    width: 6px;
-    height: 60px;
-    margin-left: -3px;
-    margin-top: -60px;
+.clock-number-12 {
+    transform: translate(-50%, -50%) rotate(0deg) translateY(-165px) rotate(0deg);
 }
 
-.hand-minute {
-    width: 4px;
-    height: 90px;
-    margin-left: -2px;
-    margin-top: -90px;
+.clock-number-1 {
+    transform: translate(-50%, -50%) rotate(30deg) translateY(-165px) rotate(-30deg);
 }
 
-.hand-second {
-    width: 2px;
-    height: 100px;
-    margin-left: -1px;
-    margin-top: -100px;
-    background: #a78bfa;
-    box-shadow: 0 0 10px #a78bfa;
+.clock-number-2 {
+    transform: translate(-50%, -50%) rotate(60deg) translateY(-165px) rotate(-60deg);
+}
+
+.clock-number-3 {
+    transform: translate(-50%, -50%) rotate(90deg) translateY(-165px) rotate(-90deg);
+}
+
+.clock-number-4 {
+    transform: translate(-50%, -50%) rotate(120deg) translateY(-165px) rotate(-120deg);
+}
+
+.clock-number-5 {
+    transform: translate(-50%, -50%) rotate(150deg) translateY(-165px) rotate(-150deg);
+}
+
+.clock-number-6 {
+    transform: translate(-50%, -50%) rotate(180deg) translateY(-165px) rotate(-180deg);
+}
+
+.clock-number-7 {
+    transform: translate(-50%, -50%) rotate(210deg) translateY(-165px) rotate(-210deg);
+}
+
+.clock-number-8 {
+    transform: translate(-50%, -50%) rotate(240deg) translateY(-165px) rotate(-240deg);
+}
+
+.clock-number-9 {
+    transform: translate(-50%, -50%) rotate(270deg) translateY(-165px) rotate(-270deg);
+}
+
+.clock-number-10 {
+    transform: translate(-50%, -50%) rotate(300deg) translateY(-165px) rotate(-300deg);
+}
+
+.clock-number-11 {
+    transform: translate(-50%, -50%) rotate(330deg) translateY(-165px) rotate(-330deg);
 }
