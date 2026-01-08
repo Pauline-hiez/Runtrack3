@@ -90,6 +90,21 @@
                     class="bg-[#a78bfa] cursor-pointer hover:bg-[#7c5fe6] text-white px-6 py-2 rounded font-bold transition">Ajouter</button>
             </form>
             <ul id="liste-alarmes" class="text-white text-lg font-mono w-full list-disc pl-6"></ul>
+            <div id="modif-alarme-form" class="hidden flex flex-col gap-2 w-full items-center mt-2">
+                <input id="modif-heure-alarme" type="time"
+                    class="rounded p-2 text-lg w-40 text-center text-white bg-[#232033]" />
+                <input id="modif-message-alarme" type="text" placeholder="Message"
+                    class="rounded p-2 text-lg w-64 text-center text-white bg-[#232033]" />
+                <button id="btn-modif-alarme"
+                    class="bg-[#a78bfa] cursor-pointer hover:bg-[#7c5fe6] text-white px-6 py-2 rounded font-bold transition">Valider
+                    la modification</button>
+                <button id="btn-annuler-modif"
+                    class="bg-gray-500 cursor-pointer hover:bg-gray-700 text-white px-6 py-2 rounded font-bold transition">Annuler</button>
+            </div>
+            <button id="btn-effacer-alarmes"
+                class="bg-[#ff3b3b] cursor-pointer hover:bg-[#e53e3e] text-white px-6 py-2 rounded font-bold transition mt-2">Effacer
+                l'historique</button>
+            <ul id="historique-alarmes" class="text-white text-lg font-mono w-full list-disc pl-6 mt-2"></ul>
             <div id="alerte-alarme"
                 class="hidden mt-2 flex items-center justify-center gap-2 text-center text-lg font-bold text-white bg-[#a78bfa] bg-opacity-90 rounded p-2">
 

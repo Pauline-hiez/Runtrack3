@@ -303,19 +303,38 @@ afficherHorloge();
 
 //REVEIL
 let alarmes = [];
+let historiqueAlarmes = [];
 
 function afficherAlarmes() {
     const liste = document.getElementById("liste-alarmes");
     if (!liste) return;
     liste.innerHTML = alarmes.map((a, i) => {
         let etat = "";
+        let actions = "";
         if (a.declenchee) {
             etat = '<span class="ml-2 text-[#ff3b3b]">passée</span>';
         } else {
             etat = '<span class="ml-2 text-[#a78bfa]">' + calculerTempsRestant(a.heure) + '</span>';
+            actions = `<button class='modif-alarme-btn bg-[#7c5fe6] text-white px-2 py-1 rounded ml-2' data-index='${i}'>Modifier</button><button class='suppr-alarme-btn bg-[#ff3b3b] text-white px-2 py-1 rounded ml-2' data-index='${i}'>Supprimer</button>`;
         }
-        return `<li><b>${a.heure}</b> : ${a.message} ${etat}</li>`;
+        return `<li><b>${a.heure}</b> : ${a.message} ${etat} ${actions}</li>`;
     }).join("");
+    afficherHistoriqueAlarmes();
+}
+
+function afficherHistoriqueAlarmes() {
+    const liste = document.getElementById("historique-alarmes");
+    const btnEffacer = document.getElementById("btn-effacer-alarmes");
+    if (!liste) return;
+    if (historiqueAlarmes.length === 0) {
+        liste.innerHTML = '<li class="text-gray-400">Aucune alarme enregistrée</li>';
+        if (btnEffacer) btnEffacer.style.display = "none";
+        return;
+    }
+    liste.innerHTML = historiqueAlarmes.map((a, i) => {
+        return `<li><b>${a.heure}</b> : ${a.message}</li>`;
+    }).join("");
+    if (btnEffacer) btnEffacer.style.display = "block";
 }
 
 function verifierAlarmes() {
@@ -325,6 +344,7 @@ function verifierAlarmes() {
         if (alarme.heure === heureActuelle && !alarme.declenchee) {
             afficherAlerteAlarme(alarme.message);
             alarme.declenchee = true;
+            historiqueAlarmes.push({ heure: alarme.heure, message: alarme.message });
         }
     });
     afficherAlarmes();
@@ -345,6 +365,13 @@ window.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("form-alarme");
     const inputHeure = document.getElementById("input-heure-alarme");
     const inputMsg = document.getElementById("input-message-alarme");
+    const btnEffacer = document.getElementById("btn-effacer-alarmes");
+    let modifForm = document.getElementById("modif-alarme-form");
+    let modifHeure = document.getElementById("modif-heure-alarme");
+    let modifMsg = document.getElementById("modif-message-alarme");
+    let btnModif = document.getElementById("btn-modif-alarme");
+    let btnAnnuler = document.getElementById("btn-annuler-modif");
+    let indexModif = null;
     if (form && inputHeure && inputMsg) {
         form.addEventListener("submit", function (e) {
             e.preventDefault();
@@ -354,6 +381,46 @@ window.addEventListener("DOMContentLoaded", function () {
             alarmes.push({ heure, message, declenchee: false });
             afficherAlarmes();
             form.reset();
+        });
+    }
+    if (btnEffacer) {
+        btnEffacer.addEventListener("click", function () {
+            historiqueAlarmes = [];
+            afficherHistoriqueAlarmes();
+        });
+    }
+    // Gestion des boutons modifier/supprimer
+    document.getElementById("liste-alarmes").addEventListener("click", function (e) {
+        if (e.target.classList.contains("modif-alarme-btn")) {
+            indexModif = parseInt(e.target.getAttribute("data-index"));
+            let a = alarmes[indexModif];
+            if (modifForm && modifHeure && modifMsg) {
+                modifHeure.value = a.heure;
+                modifMsg.value = a.message;
+                modifForm.classList.remove("hidden");
+            }
+        }
+        if (e.target.classList.contains("suppr-alarme-btn")) {
+            let idx = parseInt(e.target.getAttribute("data-index"));
+            alarmes.splice(idx, 1);
+            afficherAlarmes();
+        }
+    });
+    if (btnModif) {
+        btnModif.addEventListener("click", function () {
+            if (indexModif !== null && modifHeure.value && modifMsg.value) {
+                alarmes[indexModif].heure = modifHeure.value;
+                alarmes[indexModif].message = modifMsg.value.trim();
+                modifForm.classList.add("hidden");
+                afficherAlarmes();
+                indexModif = null;
+            }
+        });
+    }
+    if (btnAnnuler) {
+        btnAnnuler.addEventListener("click", function () {
+            modifForm.classList.add("hidden");
+            indexModif = null;
         });
     }
     afficherAlarmes();
