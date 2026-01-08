@@ -119,22 +119,10 @@ if (bouton) bouton.disabled = false;
 if (bouton) bouton.disabled = !bouton.disabled;
 
 //MINUTEUR
-let tempsRestant = 300; // 5 minutes en secondes
+let tempsRestant = 0; // Valeur par défaut (0 min)
 let intervalIdMinuteur = null;
-function demarrerMinuteur() {
-    intervalIdMinuteur = setInterval(function () {
-        tempsRestant--;
-        afficherTempsMinuteur(tempsRestant);
+let minuteurEnCours = false;
 
-        if (tempsRestant <= 0) {
-            arreterMinuteur();
-            alert("Temps écoulé !");
-        }
-    }, 1000);
-}
-function arreterMinuteur() {
-    clearInterval(intervalIdMinuteur);
-}
 function afficherTempsMinuteur(secondes) {
     const minutes = Math.floor(secondes / 60);
     const secs = secondes % 60;
@@ -142,6 +130,84 @@ function afficherTempsMinuteur(secondes) {
     let aff = document.getElementById("affichageMinuteur");
     if (aff) aff.textContent = affichage;
 }
+
+function demarrerMinuteur() {
+    if (minuteurEnCours) return;
+    minuteurEnCours = true;
+    let btn = document.getElementById("btn-minuteur");
+    if (btn) btn.textContent = "Stopper";
+    intervalIdMinuteur = setInterval(function () {
+        tempsRestant--;
+        afficherTempsMinuteur(tempsRestant);
+        if (tempsRestant <= 0) {
+            arreterMinuteur();
+            alert("Temps écoulé !");
+        }
+    }, 1000);
+}
+
+function arreterMinuteur() {
+    minuteurEnCours = false;
+    clearInterval(intervalIdMinuteur);
+    let btn = document.getElementById("btn-minuteur");
+    if (btn) btn.textContent = "Démarrer";
+}
+
+// Gestion des flèches et input
+window.addEventListener("DOMContentLoaded", function () {
+    const input = document.getElementById("minuteur-input");
+    const arrowMinUp = document.getElementById("arrow-min-up");
+    const arrowMinDown = document.getElementById("arrow-min-down");
+    const arrowSecUp = document.getElementById("arrow-sec-up");
+    const arrowSecDown = document.getElementById("arrow-sec-down");
+    const btn = document.getElementById("btn-minuteur");
+
+    function majInputEtAffichage(val) {
+        tempsRestant = Math.max(1, Math.min(3599, val));
+        if (input) input.value = tempsRestant;
+        afficherTempsMinuteur(tempsRestant);
+    }
+
+    if (input) {
+        input.addEventListener("input", function () {
+            let val = parseInt(input.value, 10);
+            if (isNaN(val) || val < 1) val = 1;
+            if (val > 3599) val = 3599;
+            majInputEtAffichage(val);
+        });
+    }
+    if (arrowMinUp) {
+        arrowMinUp.addEventListener("click", function () {
+            majInputEtAffichage(tempsRestant + 60);
+        });
+    }
+    if (arrowMinDown) {
+        arrowMinDown.addEventListener("click", function () {
+            majInputEtAffichage(tempsRestant - 60);
+        });
+    }
+    if (arrowSecUp) {
+        arrowSecUp.addEventListener("click", function () {
+            majInputEtAffichage(tempsRestant + 1);
+        });
+    }
+    if (arrowSecDown) {
+        arrowSecDown.addEventListener("click", function () {
+            majInputEtAffichage(tempsRestant - 1);
+        });
+    }
+    if (btn) {
+        btn.addEventListener("click", function () {
+            if (!minuteurEnCours) {
+                demarrerMinuteur();
+            } else {
+                arreterMinuteur();
+            }
+        });
+    }
+    // Initialisation affichage
+    majInputEtAffichage(tempsRestant);
+});
 
 //CHRONOMETRE
 let tempsEcoule = 0;

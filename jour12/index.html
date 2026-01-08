@@ -40,6 +40,26 @@
             </div>
         </div>
         <div id="digital" class="mt-10 text-white text-5xl font-mono tracking-widest"></div>
+        <div class="mt-12 flex flex-col items-center gap-4 bg-[#232033] p-6 rounded-lg shadow-lg w-96">
+            <h3 class="text-white text-2xl font-semibold mb-2">Minuteur</h3>
+            <div class="flex items-center gap-2 mb-2">
+                <div class="flex flex-col items-center mr-2">
+                    <button id="arrow-min-up"
+                        class="bg-[#a78bfa] text-white px-2 py-1 rounded text-xl mb-1">&#8593;</button>
+                    <button id="arrow-min-down"
+                        class="bg-[#a78bfa] text-white px-2 py-1 rounded text-xl">&#8595;</button>
+                </div>
+                <div id="affichageMinuteur" class="text-white text-4xl font-mono mx-4">00:00</div>
+                <div class="flex flex-col items-center ml-2">
+                    <button id="arrow-sec-up"
+                        class="bg-[#a78bfa] text-white px-2 py-1 rounded text-xl mb-1">&#8593;</button>
+                    <button id="arrow-sec-down"
+                        class="bg-[#a78bfa] text-white px-2 py-1 rounded text-xl">&#8595;</button>
+                </div>
+            </div>
+            <button id="btn-minuteur"
+                class="bg-[#a78bfa] cursor-pointer hover:bg-[#7c5fe6] text-white px-6 py-2 rounded font-bold transition">Démarrer</button>
+        </div>
     </div>
 
     <script src="script.js"></script>
