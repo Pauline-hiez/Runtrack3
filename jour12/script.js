@@ -469,3 +469,27 @@ function calculerTempsRestant(heureAlarme) {
     return "Dans " + heuresRestantes + "h " + minutesRestantes + "min";
 }
 
+// Gestion de la navbar et affichage dynamique des modules
+(function () {
+    function showSection(section) {
+        const sections = ["minuteur", "chrono", "reveil"];
+        sections.forEach(s => {
+            const sec = document.getElementById("section-" + s);
+            const nav = document.getElementById("nav-" + s);
+            if (sec) sec.classList.add("hidden");
+            if (nav) nav.classList.remove("text-[#a78bfa]");
+        });
+        const activeSec = document.getElementById("section-" + section);
+        const activeNav = document.getElementById("nav-" + section);
+        if (activeSec) activeSec.classList.remove("hidden");
+        if (activeNav) activeNav.classList.add("text-[#a78bfa]");
+    }
+    document.addEventListener("DOMContentLoaded", function () {
+        showSection("minuteur");
+        ["minuteur", "chrono", "reveil"].forEach(s => {
+            const nav = document.getElementById("nav-" + s);
+            if (nav) nav.addEventListener("click", function () { showSection(s); });
+        });
+    });
+})();
+

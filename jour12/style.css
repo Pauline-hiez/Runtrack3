@@ -2,6 +2,13 @@
     box-shadow: 0 0 60px 10px #a78bfa44;
 }
 
+.horloge-hover:hover {
+    box-shadow: 0 0 80px 20px #a78bfa99;
+    background: #2d2942;
+    transition: box-shadow 0.3s, background 0.3s;
+    cursor: pointer;
+}
+
 /* Chiffres de l'horloge positionnés en cercle */
 .clock-number {
     position: absolute;
