@@ -302,34 +302,63 @@ setInterval(afficherHorloge, 1000);
 afficherHorloge();
 
 //REVEIL
-const alarmes = [
-    {
-        id: 1,
-        heure: "15:30",
-        message: "Réunion importante",
-        declenchee: false
-    },
-    {
-        id: 2,
-        heure: "18:00",
-        message: "Fin de journée",
-        declenchee: false
-    }
-];
+let alarmes = [];
+
+function afficherAlarmes() {
+    const liste = document.getElementById("liste-alarmes");
+    if (!liste) return;
+    liste.innerHTML = alarmes.map((a, i) => {
+        let etat = "";
+        if (a.declenchee) {
+            etat = '<span class="ml-2 text-[#ff3b3b]">passée</span>';
+        } else {
+            etat = '<span class="ml-2 text-[#a78bfa]">' + calculerTempsRestant(a.heure) + '</span>';
+        }
+        return `<li><b>${a.heure}</b> : ${a.message} ${etat}</li>`;
+    }).join("");
+}
 
 function verifierAlarmes() {
     const maintenant = new Date();
-    const heureActuelle = formatNumber(maintenant.getHours()) + ":" +
-        formatNumber(maintenant.getMinutes());
-
+    const heureActuelle = formatNumber(maintenant.getHours()) + ":" + formatNumber(maintenant.getMinutes());
     alarmes.forEach(function (alarme) {
         if (alarme.heure === heureActuelle && !alarme.declenchee) {
-            alert(alarme.message);
+            afficherAlerteAlarme(alarme.message);
             alarme.declenchee = true;
         }
     });
+    afficherAlarmes();
 }
-// Vérifier chaque seconde
+
+function afficherAlerteAlarme(message) {
+    const alerte = document.getElementById("alerte-alarme");
+    if (alerte) {
+        alerte.textContent = message;
+        alerte.classList.remove("hidden");
+        setTimeout(() => {
+            alerte.classList.add("hidden");
+        }, 5000);
+    }
+}
+
+window.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("form-alarme");
+    const inputHeure = document.getElementById("input-heure-alarme");
+    const inputMsg = document.getElementById("input-message-alarme");
+    if (form && inputHeure && inputMsg) {
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+            const heure = inputHeure.value;
+            const message = inputMsg.value.trim();
+            if (!heure || !message) return;
+            alarmes.push({ heure, message, declenchee: false });
+            afficherAlarmes();
+            form.reset();
+        });
+    }
+    afficherAlarmes();
+});
+
 setInterval(verifierAlarmes, 1000);
 
 // Secondes → Minutes:Secondes

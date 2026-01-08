@@ -47,16 +47,16 @@
             <div class="flex items-center gap-2 mb-2">
                 <div class="flex flex-col items-center mr-2">
                     <button id="arrow-min-up"
-                        class="bg-[#a78bfa] text-white px-2 py-1 rounded text-xl mb-1">&#8593;</button>
+                        class="bg-[#a78bfa] cursor-pointer text-white px-2 py-1 rounded text-xl mb-1">&#8593;</button>
                     <button id="arrow-min-down"
-                        class="bg-[#a78bfa] text-white px-2 py-1 rounded text-xl">&#8595;</button>
+                        class="bg-[#a78bfa] cursor-pointer text-white px-2 py-1 rounded text-xl">&#8595;</button>
                 </div>
                 <div id="affichageMinuteur" class="text-white text-4xl font-mono mx-4">00:00</div>
                 <div class="flex flex-col items-center ml-2">
                     <button id="arrow-sec-up"
-                        class="bg-[#a78bfa] text-white px-2 py-1 rounded text-xl mb-1">&#8593;</button>
+                        class="bg-[#a78bfa] cursor-pointer text-white px-2 py-1 rounded text-xl mb-1">&#8593;</button>
                     <button id="arrow-sec-down"
-                        class="bg-[#a78bfa] text-white px-2 py-1 rounded text-xl">&#8595;</button>
+                        class="bg-[#a78bfa] cursor-pointer text-white px-2 py-1 rounded text-xl">&#8595;</button>
                 </div>
             </div>
             <button id="btn-minuteur"
@@ -76,6 +76,25 @@
                     class="bg-[#a78bfa] cursor-pointer hover:bg-[#7c5fe6] text-white px-4 py-2 rounded font-bold transition">Reset</button>
             </div>
             <ul id="listeTours" class="text-white text-lg font-mono w-full list-decimal pl-6"></ul>
+        </div>
+
+        <!-- Réveil -->
+        <div class="mt-8 flex flex-col items-center gap-4 bg-[#232033] p-6 rounded-lg shadow-lg w-96">
+            <h3 class="text-white text-2xl font-semibold mb-2">Réveil</h3>
+            <form id="form-alarme" class="flex flex-col gap-2 w-full items-center">
+                <input id="input-heure-alarme" type="time" required
+                    class="rounded p-2 text-lg w-40 text-center text-white bg-[#232033]" />
+                <input id="input-message-alarme" type="text" placeholder="Message" required
+                    class="rounded p-2 text-lg w-64 text-center text-white bg-[#232033]" />
+                <button type="submit"
+                    class="bg-[#a78bfa] cursor-pointer hover:bg-[#7c5fe6] text-white px-6 py-2 rounded font-bold transition">Ajouter</button>
+            </form>
+            <ul id="liste-alarmes" class="text-white text-lg font-mono w-full list-disc pl-6"></ul>
+            <div id="alerte-alarme"
+                class="hidden mt-2 flex items-center justify-center gap-2 text-center text-lg font-bold text-white bg-[#a78bfa] bg-opacity-90 rounded p-2">
+
+                <span id="message-alarme"></span>
+            </div>
         </div>
     </div>
 
