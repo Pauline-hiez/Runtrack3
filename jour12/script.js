@@ -214,6 +214,12 @@ let tempsEcoule = 0;
 let intervalIdChrono = null;
 let enMarche = false;
 let tours = [];
+
+function afficherTempsChrono(secondes) {
+    let aff = document.getElementById("affichageChrono");
+    if (aff) aff.textContent = secondesVersHMS(secondes);
+}
+
 function toggleChrono() {
     if (enMarche) {
         arreterChrono();
@@ -221,37 +227,61 @@ function toggleChrono() {
         demarrerChrono();
     }
 }
+
 function demarrerChrono() {
     enMarche = true;
     intervalIdChrono = setInterval(function () {
         tempsEcoule++;
         afficherTempsChrono(tempsEcoule);
     }, 1000);
-
-    // Changer le texte du bouton
     let btn = document.getElementById("btnToggle");
     if (btn) btn.textContent = "Arrêter";
 }
+
 function arreterChrono() {
     enMarche = false;
     clearInterval(intervalIdChrono);
     let btn = document.getElementById("btnToggle");
     if (btn) btn.textContent = "Démarrer";
 }
-function afficherTempsChrono(secondes) {
-    let aff = document.getElementById("affichageChrono");
-    if (aff) aff.textContent = secondesVersHMS(secondes);
-}
+
 function enregistrerTour() {
     tours.push(tempsEcoule);
     afficherTours();
 }
+
 function afficherTours() {
     let liste = document.getElementById("listeTours");
     if (liste) {
         liste.innerHTML = tours.map((t, i) => `<li>Tour ${i + 1} : ${secondesVersHMS(t)}</li>`).join("");
     }
 }
+
+function resetChrono() {
+    arreterChrono();
+    tempsEcoule = 0;
+    tours = [];
+    afficherTempsChrono(tempsEcoule);
+    afficherTours();
+}
+
+// Gestion des boutons du chrono
+window.addEventListener("DOMContentLoaded", function () {
+    let btnToggle = document.getElementById("btnToggle");
+    let btnTour = document.getElementById("btnTour");
+    let btnReset = document.getElementById("btnReset");
+    afficherTempsChrono(tempsEcoule);
+    afficherTours();
+    if (btnToggle) {
+        btnToggle.addEventListener("click", toggleChrono);
+    }
+    if (btnTour) {
+        btnTour.addEventListener("click", enregistrerTour);
+    }
+    if (btnReset) {
+        btnReset.addEventListener("click", resetChrono);
+    }
+});
 
 //HORLOGE
 function afficherHorloge() {

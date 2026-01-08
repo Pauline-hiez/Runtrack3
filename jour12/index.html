@@ -11,10 +11,10 @@
 
 <body>
 
+    <!-- Horloge -->
     <div class="flex flex-col items-center justify-center min-h-screen bg-[#1a1725]">
         <h2 class="text-white text-center text-6xl font-bold mb-8">Horloge</h2>
         <div class="relative w-96 h-96 rounded-full bg-[#232033] shadow-horloge">
-            <!-- Chiffres de l'horloge -->
             <div class="clock-number clock-number-12">12</div>
             <div class="clock-number clock-number-1">1</div>
             <div class="clock-number clock-number-2">2</div>
@@ -39,6 +39,8 @@
             <div class="absolute w-4 h-4 bg-white rounded-full left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
             </div>
         </div>
+
+        <!-- Minuteur -->
         <div id="digital" class="mt-10 text-white text-5xl font-mono tracking-widest"></div>
         <div class="mt-12 flex flex-col items-center gap-4 bg-[#232033] p-6 rounded-lg shadow-lg w-96">
             <h3 class="text-white text-2xl font-semibold mb-2">Minuteur</h3>
@@ -59,6 +61,21 @@
             </div>
             <button id="btn-minuteur"
                 class="bg-[#a78bfa] cursor-pointer hover:bg-[#7c5fe6] text-white px-6 py-2 rounded font-bold transition">Démarrer</button>
+        </div>
+
+        <!-- Chronomètre -->
+        <div class="mt-8 flex flex-col items-center gap-4 bg-[#232033] p-6 rounded-lg shadow-lg w-96">
+            <h3 class="text-white text-2xl font-semibold mb-2">Chronomètre</h3>
+            <div id="affichageChrono" class="text-white text-4xl font-mono mb-2">00:00:00</div>
+            <div class="flex gap-4 mb-2">
+                <button id="btnToggle"
+                    class="bg-[#a78bfa] cursor-pointer hover:bg-[#7c5fe6] text-white px-6 py-2 rounded font-bold transition">Démarrer</button>
+                <button id="btnTour"
+                    class="bg-[#a78bfa] cursor-pointer hover:bg-[#7c5fe6] text-white px-4 py-2 rounded font-bold transition">Tour</button>
+                <button id="btnReset"
+                    class="bg-[#a78bfa] cursor-pointer hover:bg-[#7c5fe6] text-white px-4 py-2 rounded font-bold transition">Reset</button>
+            </div>
+            <ul id="listeTours" class="text-white text-lg font-mono w-full list-decimal pl-6"></ul>
         </div>
     </div>
 
