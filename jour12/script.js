@@ -141,7 +141,7 @@ function demarrerMinuteur() {
         afficherTempsMinuteur(tempsRestant);
         if (tempsRestant <= 0) {
             arreterMinuteur();
-            alert("Temps écoulé !");
+            SilentHillAlert("Temps écoulé !");
         }
     }, 1000);
 }
@@ -355,6 +355,7 @@ function afficherAlerteAlarme(message) {
     if (alerte) {
         alerte.textContent = message;
         alerte.classList.remove("hidden");
+        SilentHillAlert(message);
         setTimeout(() => {
             alerte.classList.add("hidden");
         }, 5000);
@@ -493,3 +494,32 @@ function calculerTempsRestant(heureAlarme) {
     });
 })();
 
+function SilentHillAlert(message) {
+    console.log('SilentHillAlert appelée avec message :', message);
+
+    const sound = document.getElementById('alert-sound');
+
+    if (sound) {
+        sound.pause();
+        sound.currentTime = 0;
+        let repetitions = 0;
+
+        // fonction pour jouer le son qui se répète
+        const playAlert = () => {
+            if (repetitions < 2) {
+                // Fluidité du son
+                const soundClone = sound.cloneNode();
+                soundClone.play().catch(e => console.log("Erreur lecture"));
+                repetitions++;
+            } else {
+                clearInterval(intervalSon);
+            }
+        };
+
+        // On lance le premier son
+        playAlert();
+
+        // On lance l'intervalle pour les suivants
+        const intervalSon = setInterval(playAlert, 1200);
+    }
+}
