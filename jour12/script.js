@@ -168,50 +168,70 @@ function arreterMinuteur() {
 
 // Gestion des flèches et input
 window.addEventListener("DOMContentLoaded", function () {
-    const input = document.getElementById("minuteur-input");
+    const inputHour = document.getElementById("minuteur-hour");
+    const inputMinute = document.getElementById("minuteur-minute");
+    const inputSecond = document.getElementById("minuteur-second");
     const arrowMinUp = document.getElementById("arrow-min-up");
     const arrowMinDown = document.getElementById("arrow-min-down");
     const arrowSecUp = document.getElementById("arrow-sec-up");
     const arrowSecDown = document.getElementById("arrow-sec-down");
     const btn = document.getElementById("btn-minuteur");
 
+    function getTotalSeconds() {
+        const h = parseInt(inputHour.value, 10) || 0;
+        const m = parseInt(inputMinute.value, 10) || 0;
+        const s = parseInt(inputSecond.value, 10) || 0;
+        return Math.max(1, Math.min(23 * 3600 + 59 * 60 + 59, h * 3600 + m * 60 + s));
+    }
+
+    function setInputsFromSeconds(total) {
+        const h = Math.floor(total / 3600);
+        const m = Math.floor((total % 3600) / 60);
+        const s = total % 60;
+        inputHour.value = h;
+        inputMinute.value = m;
+        inputSecond.value = s;
+    }
+
     function majInputEtAffichage(val) {
-        tempsRestant = Math.max(1, Math.min(3599, val));
-        if (input) input.value = tempsRestant;
+        tempsRestant = Math.max(1, Math.min(23 * 3600 + 59 * 60 + 59, val));
+        setInputsFromSeconds(tempsRestant);
         afficherTempsMinuteur(tempsRestant);
     }
 
-    if (input) {
-        input.addEventListener("input", function () {
-            let val = parseInt(input.value, 10);
-            if (isNaN(val) || val < 1) val = 1;
-            if (val > 3599) val = 3599;
-            majInputEtAffichage(val);
-        });
-    }
+    [inputHour, inputMinute, inputSecond].forEach(function (input) {
+        if (input) {
+            input.addEventListener("input", function () {
+                let total = getTotalSeconds();
+                majInputEtAffichage(total);
+            });
+        }
+    });
+
     if (arrowMinUp) {
         arrowMinUp.addEventListener("click", function () {
-            majInputEtAffichage(tempsRestant + 60);
+            majInputEtAffichage(getTotalSeconds() + 60);
         });
     }
     if (arrowMinDown) {
         arrowMinDown.addEventListener("click", function () {
-            majInputEtAffichage(tempsRestant - 60);
+            majInputEtAffichage(getTotalSeconds() - 60);
         });
     }
     if (arrowSecUp) {
         arrowSecUp.addEventListener("click", function () {
-            majInputEtAffichage(tempsRestant + 1);
+            majInputEtAffichage(getTotalSeconds() + 1);
         });
     }
     if (arrowSecDown) {
         arrowSecDown.addEventListener("click", function () {
-            majInputEtAffichage(tempsRestant - 1);
+            majInputEtAffichage(getTotalSeconds() - 1);
         });
     }
     if (btn) {
         btn.addEventListener("click", function () {
             if (!minuteurEnCours) {
+                tempsRestant = getTotalSeconds();
                 demarrerMinuteur();
             } else {
                 arreterMinuteur();
@@ -219,7 +239,7 @@ window.addEventListener("DOMContentLoaded", function () {
         });
     }
     // Initialisation affichage
-    majInputEtAffichage(tempsRestant);
+    majInputEtAffichage(getTotalSeconds());
 });
 
 //CHRONOMETRE

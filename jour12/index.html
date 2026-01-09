@@ -7,6 +7,9 @@
     <title>Horloge</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mystery+Quest&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -22,7 +25,7 @@
                 <button id="nav-reveil"
                     class="nav-btn cursor-pointer text-white text-lg font-semibold hover:text-[#a78bfa] focus:text-[#a78bfa] transition relative z-10">Réveil</button>
                 <button id="nav-chrono"
-                    class="nav-btn cursor-pointer text-white text-lg font-semibold hover:text-[#a78bfa] focus:text-[#a78bfa] transition relative z-10">Chrono</button>
+                    class="nav-btn cursor-pointer text-white text-lg font-semibold hover:text-[#a78bfa] focus:text-[#a78bfa] transition relative z-10">Chronomètre</button>
             </div>
         </nav>
 
@@ -67,7 +70,6 @@
             </div>
             <!-- Colonne droite : Modules -->
             <div class="flex flex-col items-center justify-center flex-1 w-full">
-                <!-- Contenu dynamique -->
                 <div class="flex flex-col items-center w-full">
                     <!-- Minuteur -->
                     <div id="section-minuteur"
@@ -76,86 +78,113 @@
                         <div class="flex items-center gap-2 mb-2">
                             <div class="flex flex-col items-center mr-2">
                                 <button id="arrow-min-up"
-                                    class="bg-[#a78bfa] cursor-pointer text-white px-2 py-1 rounded text-xl mb-1">&#8593;</button>
+                                    class="bg-[#a78bfa] cursor-pointer text-white px-2 py-1 rounded text-xl mb-1 transition duration-150 hover:bg-[#7c5fe6] hover:scale-110 hover:shadow-[0_0_8px_#a78bfa]">&#8593;</button>
                                 <button id="arrow-min-down"
-                                    class="bg-[#a78bfa] cursor-pointer text-white px-2 py-1 rounded text-xl">&#8595;</button>
+                                    class="bg-[#a78bfa] cursor-pointer text-white px-2 py-1 rounded text-xl transition duration-150 hover:bg-[#7c5fe6] hover:scale-110 hover:shadow-[0_0_8px_#a78bfa]">&#8595;</button>
                             </div>
                             <div id="affichageMinuteur" class="text-white text-4xl font-mono mx-4">00:00</div>
                             <div class="flex flex-col items-center ml-2">
                                 <button id="arrow-sec-up"
-                                    class="bg-[#a78bfa] cursor-pointer text-white px-2 py-1 rounded text-xl mb-1">&#8593;</button>
+                                    class="bg-[#a78bfa] cursor-pointer text-white px-2 py-1 rounded text-xl mb-1 transition duration-150 hover:bg-[#7c5fe6] hover:scale-110 hover:shadow-[0_0_8px_#a78bfa]">&#8593;</button>
                                 <button id="arrow-sec-down"
-                                    class="bg-[#a78bfa] cursor-pointer text-white px-2 py-1 rounded text-xl">&#8595;</button>
+                                    class="bg-[#a78bfa] cursor-pointer text-white px-2 py-1 rounded text-xl transition duration-150 hover:bg-[#7c5fe6] hover:scale-110 hover:shadow-[0_0_8px_#a78bfa]">&#8595;</button>
                             </div>
                         </div>
-                        <button id="btn-minuteur"
+                        <div class="flex gap-2 mt-2 items-center justify-center">
+                            <input id="minuteur-hour" type="number" min="0" max="23" value="0"
+                                class="rounded p-2 text-lg w-16 text-center text-white bg-[#232033] focus:outline-none focus:ring-2 focus:ring-[#a78bfa] cursor-pointer"
+                                placeholder="h" />
+                            <span class="text-white text-xl font-mono">:</span>
+                            <input id="minuteur-minute" type="number" min="0" max="59" value="1"
+                                class="rounded p-2 text-lg w-16 text-center text-white bg-[#232033] focus:outline-none focus:ring-2 focus:ring-[#a78bfa] cursor-pointer"
+                                placeholder="m" />
+                            <span class="text-white text-xl font-mono">:</span>
+                            <input id="minuteur-second" type="number" min="0" max="59" value="0"
+                                class="rounded p-2 text-lg w-16 text-center text-white bg-[#232033] focus:outline-none focus:ring-2 focus:ring-[#a78bfa] cursor-pointer"
+                                placeholder="s" />
+                        </div>
+                    </div>
+                    <button id="btn-minuteur"
+                        class="bg-[#a78bfa] cursor-pointer hover:bg-[#7c5fe6] text-white px-6 py-2 rounded font-bold transition mt-6">Démarrer</button>
+                    <div id="alerte-minuteur"
+                        class="hidden mt-2 flex items-center justify-center gap-2 text-center text-lg font-bold text-white bg-[#a78bfa] bg-opacity-90 rounded p-2">
+                        <span id="message-minuteur"></span>
+                        <button id="btn-stop-son-minuteur"
+                            class="bg-red-500 text-white px-2 py-1 rounded ml-2 cursor-pointer">✘</button>
+                    </div>
+                </div>
+
+                <!-- Chronomètre -->
+                <div id="section-chrono"
+                    class="hidden flex flex-col items-center gap-4 bg-[#232033] p-6 rounded-lg shadow-lg shadow-bloc w-96">
+                    <h3 class="text-white text-2xl font-semibold mb-2">Chrnomètre</h3>
+                    <div id="affichageChrono" class="text-white text-4xl font-mono mb-2">00:00:00</div>
+                    <div class="flex gap-4 mb-2">
+                        <button id="btnToggle"
                             class="bg-[#a78bfa] cursor-pointer hover:bg-[#7c5fe6] text-white px-6 py-2 rounded font-bold transition">Démarrer</button>
-                        <div id="alerte-minuteur"
-                            class="hidden mt-2 flex items-center justify-center gap-2 text-center text-lg font-bold text-white bg-[#a78bfa] bg-opacity-90 rounded p-2">
-                            <span id="message-minuteur"></span>
-                            <button id="btn-stop-son-minuteur"
-                                class="bg-red-500 text-white px-2 py-1 rounded ml-2 cursor-pointer">✘</button>
-                        </div>
+                        <button id="btnTour"
+                            class="bg-[#a78bfa] cursor-pointer hover:bg-[#7c5fe6] text-white px-4 py-2 rounded font-bold transition">Tour</button>
+                        <button id="btnReset"
+                            class="bg-[#a78bfa] cursor-pointer hover:bg-[#7c5fe6] text-white px-4 py-2 rounded font-bold transition">Reset</button>
                     </div>
+                    <ul id="listeTours" class="text-white text-lg font-mono w-full list-decimal pl-6"></ul>
+                </div>
 
-                    <!-- Chronomètre -->
-                    <div id="section-chrono"
-                        class="hidden flex flex-col items-center gap-4 bg-[#232033] p-6 rounded-lg shadow-lg shadow-bloc w-96">
-                        <h3 class="text-white text-2xl font-semibold mb-2">Chronomètre</h3>
-                        <div id="affichageChrono" class="text-white text-4xl font-mono mb-2">00:00:00</div>
-                        <div class="flex gap-4 mb-2">
-                            <button id="btnToggle"
-                                class="bg-[#a78bfa] cursor-pointer hover:bg-[#7c5fe6] text-white px-6 py-2 rounded font-bold transition">Démarrer</button>
-                            <button id="btnTour"
-                                class="bg-[#a78bfa] cursor-pointer hover:bg-[#7c5fe6] text-white px-4 py-2 rounded font-bold transition">Tour</button>
-                            <button id="btnReset"
-                                class="bg-[#a78bfa] cursor-pointer hover:bg-[#7c5fe6] text-white px-4 py-2 rounded font-bold transition">Reset</button>
-                        </div>
-                        <ul id="listeTours" class="text-white text-lg font-mono w-full list-decimal pl-6"></ul>
+                <!-- Réveil -->
+                <div id="section-reveil"
+                    class="hidden flex flex-col items-center gap-4 bg-[#232033] p-6 rounded-lg shadow-lg shadow-bloc w-96">
+                    <h3 class="text-white text-2xl font-semibold mb-2">Réveil</h3>
+                    <form id="form-alarme" class="flex flex-col gap-2 w-full items-center">
+                        <input id="input-heure-alarme" type="time" required
+                            class="rounded p-2 text-lg w-40 text-center text-white bg-[#232033] cursor-pointer" />
+                        <style>
+                            input[type="time"]::-webkit-calendar-picker-indicator {
+                                cursor: pointer;
+                            }
+
+                            input[type="time"]::-moz-calendar-picker-indicator {
+                                cursor: pointer;
+                            }
+
+                            input[type="time"]::-ms-calendar-picker-indicator {
+                                cursor: pointer;
+                            }
+                        </style>
+                        <input id="input-message-alarme" type="text" placeholder="Message" required
+                            class="rounded p-2 text-lg w-64 text-center text-white bg-[#232033] cursor-pointer" />
+                        <button type="submit"
+                            class="bg-[#a78bfa] cursor-pointer hover:bg-[#7c5fe6] text-white px-6 py-2 rounded font-bold transition">Ajouter</button>
+                    </form>
+                    <ul id="liste-alarmes" class="text-white text-lg font-mono w-full list-disc pl-6"></ul>
+                    <div id="modif-alarme-form" class="hidden flex flex-col gap-2 w-full items-center mt-2">
+                        <input id="modif-heure-alarme" type="time"
+                            class="rounded p-2 text-lg w-40 text-center text-white bg-[#232033] cursor-pointer" />
+                        <input id="modif-message-alarme" type="text" placeholder="Message"
+                            class="rounded p-2 text-lg w-64 text-center text-white bg-[#232033] cursor-pointer" />
+                        <button id="btn-modif-alarme"
+                            class="bg-[#a78bfa] cursor-pointer hover:bg-[#7c5fe6] text-white px-6 py-2 rounded font-bold transition">Valider
+                            la modification</button>
+                        <button id="btn-annuler-modif"
+                            class="bg-gray-500 cursor-pointer hover:bg-gray-700 text-white px-6 py-2 rounded font-bold transition">Annuler</button>
                     </div>
-
-                    <!-- Réveil -->
-                    <div id="section-reveil"
-                        class="hidden flex flex-col items-center gap-4 bg-[#232033] p-6 rounded-lg shadow-lg shadow-bloc w-96">
-                        <h3 class="text-white text-2xl font-semibold mb-2">Réveil</h3>
-                        <form id="form-alarme" class="flex flex-col gap-2 w-full items-center">
-                            <input id="input-heure-alarme" type="time" required
-                                class="rounded p-2 text-lg w-40 text-center text-white bg-[#232033]" />
-                            <input id="input-message-alarme" type="text" placeholder="Message" required
-                                class="rounded p-2 text-lg w-64 text-center text-white bg-[#232033]" />
-                            <button type="submit"
-                                class="bg-[#a78bfa] cursor-pointer hover:bg-[#7c5fe6] text-white px-6 py-2 rounded font-bold transition">Ajouter</button>
-                        </form>
-                        <ul id="liste-alarmes" class="text-white text-lg font-mono w-full list-disc pl-6"></ul>
-                        <div id="modif-alarme-form" class="hidden flex flex-col gap-2 w-full items-center mt-2">
-                            <input id="modif-heure-alarme" type="time"
-                                class="rounded p-2 text-lg w-40 text-center text-white bg-[#232033]" />
-                            <input id="modif-message-alarme" type="text" placeholder="Message"
-                                class="rounded p-2 text-lg w-64 text-center text-white bg-[#232033]" />
-                            <button id="btn-modif-alarme"
-                                class="bg-[#a78bfa] cursor-pointer hover:bg-[#7c5fe6] text-white px-6 py-2 rounded font-bold transition">Valider
-                                la modification</button>
-                            <button id="btn-annuler-modif"
-                                class="bg-gray-500 cursor-pointer hover:bg-gray-700 text-white px-6 py-2 rounded font-bold transition">Annuler</button>
-                        </div>
-                        <button id="btn-effacer-alarmes"
-                            class="bg-[#ff3b3b] cursor-pointer hover:bg-[#e53e3e] text-white px-6 py-2 rounded font-bold transition mt-2">Effacer
-                            l'historique</button>
-                        <ul id="historique-alarmes" class="text-white text-lg font-mono w-full list-disc pl-6 mt-2">
-                        </ul>
-                        <div id="alerte-alarme"
-                            class="hidden mt-2 flex items-center justify-center gap-2 text-center text-lg font-bold text-white bg-[#a78bfa] bg-opacity-90 rounded p-2">
-                            <span id="message-alarme"></span>
-                            <button id="btn-stop-son-reveil"
-                                class="bg-red-500 text-white px-2 py-1 rounded ml-2 cursor-pointer"
-                                style="display:inline-block">✘</button>
-                        </div>
+                    <button id="btn-effacer-alarmes"
+                        class="bg-[#ff3b3b] cursor-pointer hover:bg-[#e53e3e] text-white px-6 py-2 rounded font-bold transition mt-2">Effacer
+                        l'historique</button>
+                    <ul id="historique-alarmes" class="text-white text-lg font-mono w-full list-disc pl-6 mt-2">
+                    </ul>
+                    <div id="alerte-alarme"
+                        class="hidden mt-2 flex items-center justify-center gap-2 text-center text-lg font-bold text-white bg-[#a78bfa] bg-opacity-90 rounded p-2">
+                        <span id="message-alarme"></span>
+                        <button id="btn-stop-son-reveil"
+                            class="bg-red-500 text-white px-2 py-1 rounded ml-2 cursor-pointer"
+                            style="display:inline-block">✘</button>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <audio id="alert-sound" src="silent-hill.mp3" preload="auto"></audio>
-            <script src="script.js"></script>
+        <audio id="alert-sound" src="silent-hill.mp3" preload="auto"></audio>
+        <script src="script.js"></script>
 </body>
 
 </html>

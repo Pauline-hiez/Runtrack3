@@ -1,3 +1,28 @@
+.font-mystery {
+    font-family: 'Mystery Quest', cursive;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+label,
+.nav-btn,
+/* button, */
+input[type="time"],
+.font-mystery {
+    font-family: 'Mystery Quest', cursive;
+}
+
+.clock-number,
+#digital {
+    font-family: 'monospace', 'Arial', sans-serif !important;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Mystery+Quest&display=swap');
+
 .nav-btn {
     position: relative;
     z-index: 10;
