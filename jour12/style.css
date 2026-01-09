@@ -96,13 +96,32 @@ input[type="time"],
     cursor: pointer;
 }
 
+/* Centrage du bloc principal */
+.jour12-main {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    gap: 8rem;
+    /* Augmente l'espace entre horloge et modules */
+}
+
+/* Centrage des colonnes */
+.jour12-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 /* Chiffres de l'horloge positionnés en cercle */
 .clock-number {
     position: absolute;
     left: 50%;
     top: 50%;
     color: #fff;
-    font-size: 1.25rem;
+    font-size: 0.85rem;
     user-select: none;
     transform: translate(-50%, -50%);
     font-family: monospace;
@@ -154,4 +173,121 @@ input[type="time"],
 
 .clock-number-11 {
     transform: translate(-50%, -50%) rotate(330deg) translateY(-165px) rotate(-330deg);
+}
+
+/* Chiffres de l'horloge positionnés en cercle - responsive */
+.clock-number {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    color: #fff;
+    font-size: 0.85rem;
+    user-select: none;
+    transform: translate(-50%, -50%);
+    font-family: monospace;
+}
+
+@media (min-width: 768px) {
+    .clock-number {
+        font-size: 1.25rem;
+    }
+}
+
+/* Ajuste le rayon pour mobile */
+.clock-number-12 {
+    transform: translate(-50%, -50%) rotate(0deg) translateY(-110px) rotate(0deg);
+}
+
+.clock-number-1 {
+    transform: translate(-50%, -50%) rotate(30deg) translateY(-110px) rotate(-30deg);
+}
+
+.clock-number-2 {
+    transform: translate(-50%, -50%) rotate(60deg) translateY(-110px) rotate(-60deg);
+}
+
+.clock-number-3 {
+    transform: translate(-50%, -50%) rotate(90deg) translateY(-110px) rotate(-90deg);
+}
+
+.clock-number-4 {
+    transform: translate(-50%, -50%) rotate(120deg) translateY(-110px) rotate(-120deg);
+}
+
+.clock-number-5 {
+    transform: translate(-50%, -50%) rotate(150deg) translateY(-110px) rotate(-150deg);
+}
+
+.clock-number-6 {
+    transform: translate(-50%, -50%) rotate(180deg) translateY(-110px) rotate(-180deg);
+}
+
+.clock-number-7 {
+    transform: translate(-50%, -50%) rotate(210deg) translateY(-110px) rotate(-210deg);
+}
+
+.clock-number-8 {
+    transform: translate(-50%, -50%) rotate(240deg) translateY(-110px) rotate(-240deg);
+}
+
+.clock-number-9 {
+    transform: translate(-50%, -50%) rotate(270deg) translateY(-110px) rotate(-270deg);
+}
+
+.clock-number-10 {
+    transform: translate(-50%, -50%) rotate(300deg) translateY(-110px) rotate(-300deg);
+}
+
+.clock-number-11 {
+    transform: translate(-50%, -50%) rotate(330deg) translateY(-110px) rotate(-330deg);
+}
+
+@media (min-width: 768px) {
+    .clock-number-12 {
+        transform: translate(-50%, -50%) rotate(0deg) translateY(-165px) rotate(0deg);
+    }
+
+    .clock-number-1 {
+        transform: translate(-50%, -50%) rotate(30deg) translateY(-165px) rotate(-30deg);
+    }
+
+    .clock-number-2 {
+        transform: translate(-50%, -50%) rotate(60deg) translateY(-165px) rotate(-60deg);
+    }
+
+    .clock-number-3 {
+        transform: translate(-50%, -50%) rotate(90deg) translateY(-165px) rotate(-90deg);
+    }
+
+    .clock-number-4 {
+        transform: translate(-50%, -50%) rotate(120deg) translateY(-165px) rotate(-120deg);
+    }
+
+    .clock-number-5 {
+        transform: translate(-50%, -50%) rotate(150deg) translateY(-165px) rotate(-150deg);
+    }
+
+    .clock-number-6 {
+        transform: translate(-50%, -50%) rotate(180deg) translateY(-165px) rotate(-180deg);
+    }
+
+    .clock-number-7 {
+        transform: translate(-50%, -50%) rotate(210deg) translateY(-165px) rotate(-210deg);
+    }
+
+    .clock-number-8 {
+        transform: translate(-50%, -50%) rotate(240deg) translateY(-165px) rotate(-240deg);
+    }
+
+    .clock-number-9 {
+        transform: translate(-50%, -50%) rotate(270deg) translateY(-165px) rotate(-270deg);
+    }
+
+    .clock-number-10 {
+        transform: translate(-50%, -50%) rotate(300deg) translateY(-165px) rotate(-300deg);
+    }
+
+    .clock-number-11 {
+        transform: translate(-50%, -50%) rotate(330deg) translateY(-165px) rotate(-330deg);
+    }
 }

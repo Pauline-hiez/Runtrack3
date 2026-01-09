@@ -1,0 +1,21 @@
+{
+    "name": "Runtrack3 Jour12",
+    "short_name": "Jour12",
+    "start_url": "./index.html",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#1976d2",
+    "description": "Exercice PWA Runtrack3 Jour12",
+    "icons": [
+        {
+            "src": "horloge.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "horloge.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
