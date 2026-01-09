@@ -352,8 +352,9 @@ function verifierAlarmes() {
 
 function afficherAlerteAlarme(message) {
     const alerte = document.getElementById("alerte-alarme");
-    if (alerte) {
-        alerte.textContent = message;
+    const msg = document.getElementById("message-alarme");
+    if (alerte && msg) {
+        msg.textContent = message;
         alerte.classList.remove("hidden");
         SilentHillAlert(message);
         setTimeout(() => {
@@ -498,28 +499,49 @@ function SilentHillAlert(message) {
     console.log('SilentHillAlert appelée avec message :', message);
 
     const sound = document.getElementById('alert-sound');
-
     if (sound) {
         sound.pause();
         sound.currentTime = 0;
         let repetitions = 0;
 
-        // fonction pour jouer le son qui se répète
+        // Fonction pour jouer le son plusieurs fois
         const playAlert = () => {
             if (repetitions < 2) {
-                // Fluidité du son
-                const soundClone = sound.cloneNode();
-                soundClone.play().catch(e => console.log("Erreur lecture"));
+                sound.currentTime = 0;
+                sound.play().catch(e => console.log("Erreur lecture"));
                 repetitions++;
             } else {
                 clearInterval(intervalSon);
             }
         };
 
-        // On lance le premier son
         playAlert();
-
-        // On lance l'intervalle pour les suivants
         const intervalSon = setInterval(playAlert, 1200);
+        // Stocke l'intervalle pour pouvoir l'arrêter
+        sound._alertInterval = intervalSon;
     }
 }
+
+function stopAlertSound() {
+    const sound = document.getElementById('alert-sound');
+    if (sound) {
+        sound.pause();
+        sound.currentTime = 0;
+        // Arrête l'intervalle si présent
+        if (sound._alertInterval) {
+            clearInterval(sound._alertInterval);
+            sound._alertInterval = null;
+        }
+    }
+}
+
+window.addEventListener("DOMContentLoaded", function () {
+    const btnStopMinuteur = document.getElementById("btn-stop-son-minuteur");
+    const btnStopReveil = document.getElementById("btn-stop-son-reveil");
+    if (btnStopMinuteur) {
+        btnStopMinuteur.addEventListener("click", stopAlertSound);
+    }
+    if (btnStopReveil) {
+        btnStopReveil.addEventListener("click", stopAlertSound);
+    }
+});
