@@ -141,9 +141,21 @@ function demarrerMinuteur() {
         afficherTempsMinuteur(tempsRestant);
         if (tempsRestant <= 0) {
             arreterMinuteur();
+            afficherAlerteMinuteur("Temps écoulé !");
             SilentHillAlert("Temps écoulé !");
         }
     }, 1000);
+    function afficherAlerteMinuteur(message) {
+        const alerte = document.getElementById("alerte-minuteur");
+        const msg = document.getElementById("message-minuteur");
+        if (alerte && msg) {
+            msg.textContent = message;
+            alerte.classList.remove("hidden");
+            setTimeout(() => {
+                alerte.classList.add("hidden");
+            }, 5000);
+        }
+    }
 }
 
 function arreterMinuteur() {
@@ -516,8 +528,8 @@ function SilentHillAlert(message) {
         };
 
         playAlert();
-        const intervalSon = setInterval(playAlert, 1200);
-        // Stocke l'intervalle pour pouvoir l'arrêter
+        // Utilise la durée du son pour éviter de le couper
+        const intervalSon = setInterval(playAlert, (sound.duration ? sound.duration * 1000 : 1200) + 200);
         sound._alertInterval = intervalSon;
     }
 }
