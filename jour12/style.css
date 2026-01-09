@@ -51,8 +51,21 @@
     box-shadow: 0 0 60px 10px #a78bfa44;
 }
 
+.shadow-bloc {
+    box-shadow: 0 0 60px 10px #a78bfa44;
+}
+
+.shadow-bloc:not(.hidden):hover {
+    box-shadow: 0 0 80px 20px #a78bfa99;
+
+    background: #2d2942;
+    transition: box-shadow 0.3s, background 0.3s;
+    cursor: pointer;
+}
+
 .horloge-hover:hover {
     box-shadow: 0 0 80px 20px #a78bfa99;
+
     background: #2d2942;
     transition: box-shadow 0.3s, background 0.3s;
     cursor: pointer;
