@@ -13,14 +13,16 @@
 
     <div class="min-h-screen bg-[#1a1725] flex flex-col justify-center items-center">
         <!-- Navbar -->
-        <nav class="bg-[#232033] shadow-lg">
-            <div class="container mx-auto px-4 py-3 flex justify-center gap-8">
-                <button id="nav-reveil"
-                    class="text-white text-lg font-semibold hover:text-[#a78bfa] focus:text-[#a78bfa] transition">Réveil</button>
-                <button id="nav-chrono"
-                    class="text-white text-lg font-semibold hover:text-[#a78bfa] focus:text-[#a78bfa] transition">Chrono</button>
+        <nav class="bg-[#232033] shadow-lg rounded-b-lg">
+            <div class="container mx-auto px-4 py-3 flex justify-center gap-8 relative" id="navbar-container">
+                <span id="navbar-glow"
+                    class="absolute left-0 top-0 h-full w-0 bg-gradient-to-r from-[#a78bfa] to-[#7c5fe6] rounded transition-all duration-300 opacity-30 pointer-events-none"></span>
                 <button id="nav-minuteur"
-                    class="text-white text-lg font-semibold hover:text-[#a78bfa] focus:text-[#a78bfa] transition">Minuteur</button>
+                    class="nav-btn cursor-pointer text-white text-lg font-semibold hover:text-[#a78bfa] focus:text-[#a78bfa] transition relative z-10">Minuteur</button>
+                <button id="nav-reveil"
+                    class="nav-btn cursor-pointer text-white text-lg font-semibold hover:text-[#a78bfa] focus:text-[#a78bfa] transition relative z-10">Réveil</button>
+                <button id="nav-chrono"
+                    class="nav-btn cursor-pointer text-white text-lg font-semibold hover:text-[#a78bfa] focus:text-[#a78bfa] transition relative z-10">Chrono</button>
             </div>
         </nav>
 

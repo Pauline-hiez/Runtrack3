@@ -151,7 +151,7 @@ function demarrerMinuteur() {
         if (alerte && msg) {
             msg.textContent = message;
             alerte.classList.remove("hidden");
-            // Ajoute la vibration à l'horloge
+            // Ajoute la vibration uniquement à l'horloge
             const horloge = document.querySelector('.relative.w-96.h-96');
             if (horloge) horloge.classList.add('vibration-horloge');
             setTimeout(() => {
@@ -371,7 +371,7 @@ function afficherAlerteAlarme(message) {
     if (alerte && msg) {
         msg.textContent = message;
         alerte.classList.remove("hidden");
-        // Ajoute la vibration à l'horloge
+        // Ajoute la vibration uniquement à l'horloge
         const horloge = document.querySelector('.relative.w-96.h-96');
         if (horloge) horloge.classList.add('vibration-horloge');
         SilentHillAlert(message);
@@ -498,11 +498,24 @@ function calculerTempsRestant(heureAlarme) {
             const nav = document.getElementById("nav-" + s);
             if (sec) sec.classList.add("hidden");
             if (nav) nav.classList.remove("text-[#a78bfa]");
+            nav && nav.classList.remove("focus:text-[#a78bfa]", "hover:text-[#a78bfa]");
         });
         const activeSec = document.getElementById("section-" + section);
         const activeNav = document.getElementById("nav-" + section);
         if (activeSec) activeSec.classList.remove("hidden");
-        if (activeNav) activeNav.classList.add("text-[#a78bfa]");
+        // On ne change plus la couleur du texte, il reste blanc
+
+        // Effet lumineux glissant
+        const glow = document.getElementById('navbar-glow');
+        const container = document.getElementById('navbar-container');
+        if (glow && container && activeNav) {
+            const navRect = activeNav.getBoundingClientRect();
+            const contRect = container.getBoundingClientRect();
+            glow.style.left = (navRect.left - contRect.left) + 'px';
+            glow.style.width = navRect.width + 'px';
+            glow.style.top = (navRect.top - contRect.top + navRect.height / 2) + 'px';
+            glow.style.height = navRect.height + 12 + 'px';
+        }
     }
     document.addEventListener("DOMContentLoaded", function () {
         showSection("minuteur");
@@ -510,6 +523,18 @@ function calculerTempsRestant(heureAlarme) {
             const nav = document.getElementById("nav-" + s);
             if (nav) nav.addEventListener("click", function () { showSection(s); });
         });
+        // Initialisation de l'effet lumineux
+        setTimeout(() => {
+            const activeNav = document.getElementById("nav-minuteur");
+            const glow = document.getElementById('navbar-glow');
+            const container = document.getElementById('navbar-container');
+            if (glow && container && activeNav) {
+                const navRect = activeNav.getBoundingClientRect();
+                const contRect = container.getBoundingClientRect();
+                glow.style.left = (navRect.left - contRect.left) + 'px';
+                glow.style.width = navRect.width + 'px';
+            }
+        }, 100);
     });
 })();
 
