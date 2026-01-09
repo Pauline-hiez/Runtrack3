@@ -151,6 +151,9 @@ function demarrerMinuteur() {
         if (alerte && msg) {
             msg.textContent = message;
             alerte.classList.remove("hidden");
+            // Ajoute la vibration à l'horloge
+            const horloge = document.querySelector('.relative.w-96.h-96');
+            if (horloge) horloge.classList.add('vibration-horloge');
             setTimeout(() => {
                 alerte.classList.add("hidden");
             }, 5000);
@@ -368,6 +371,9 @@ function afficherAlerteAlarme(message) {
     if (alerte && msg) {
         msg.textContent = message;
         alerte.classList.remove("hidden");
+        // Ajoute la vibration à l'horloge
+        const horloge = document.querySelector('.relative.w-96.h-96');
+        if (horloge) horloge.classList.add('vibration-horloge');
         SilentHillAlert(message);
         setTimeout(() => {
             alerte.classList.add("hidden");
@@ -545,6 +551,9 @@ function stopAlertSound() {
             sound._alertInterval = null;
         }
     }
+    // Retire la vibration de l'horloge
+    const horloge = document.querySelector('.relative.w-96.h-96');
+    if (horloge) horloge.classList.remove('vibration-horloge');
 }
 
 window.addEventListener("DOMContentLoaded", function () {
