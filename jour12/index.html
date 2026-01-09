@@ -30,7 +30,12 @@
         <div class="flex flex-1 flex-row justify-center items-center gap-16 w-full max-w-6xl py-8">
             <!-- Colonne gauche : Horloge -->
             <div class="flex flex-col items-center justify-center">
-                <h2 class="text-white text-center text-6xl font-bold mb-8">Horloge</h2>
+                <h2 class="text-white text-center text-6xl font-bold mb-8">
+                    H<img src="horloge.png" alt="o"
+                        style="height:1em;vertical-align:middle;display:inline;filter:brightness(0) invert(1);">rl<img
+                        src="horloge.png" alt="o"
+                        style="height:1em;vertical-align:middle;display:inline;filter:brightness(0) invert(1);">ge
+                </h2>
                 <div class="relative w-96 h-96 rounded-full bg-[#232033] shadow-horloge horloge-hover">
                     <div id="horloge-vibrante" class="absolute inset-0 w-full h-full z-10 pointer-events-none"></div>
                     <div class="clock-number clock-number-12">12</div>
@@ -89,8 +94,7 @@
                             class="hidden mt-2 flex items-center justify-center gap-2 text-center text-lg font-bold text-white bg-[#a78bfa] bg-opacity-90 rounded p-2">
                             <span id="message-minuteur"></span>
                             <button id="btn-stop-son-minuteur"
-                                class="bg-red-500 text-white px-2 py-1 rounded ml-2 cursor-pointer">Arrêter le
-                                son</button>
+                                class="bg-red-500 text-white px-2 py-1 rounded ml-2 cursor-pointer">✘</button>
                         </div>
                     </div>
 
@@ -144,7 +148,7 @@
                             <span id="message-alarme"></span>
                             <button id="btn-stop-son-reveil"
                                 class="bg-red-500 text-white px-2 py-1 rounded ml-2 cursor-pointer"
-                                style="display:inline-block">Arrêter le son</button>
+                                style="display:inline-block">✘</button>
                         </div>
                     </div>
                 </div>
