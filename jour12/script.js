@@ -152,7 +152,7 @@ function demarrerMinuteur() {
             msg.textContent = message;
             alerte.classList.remove("hidden");
             // Ajoute la vibration uniquement à l'horloge
-            const horloge = document.querySelector('.relative.w-96.h-96');
+            const horloge = document.getElementById('horloge-cadre');
             if (horloge) horloge.classList.add('vibration-horloge');
             // Suppression du setTimeout pour laisser l'alerte visible jusqu'à l'action utilisateur
         }
@@ -390,7 +390,7 @@ function afficherAlerteAlarme(message) {
         msg.textContent = message;
         alerte.classList.remove("hidden");
         // Ajoute la vibration uniquement à l'horloge
-        const horloge = document.querySelector('.relative.w-96.h-96');
+        const horloge = document.getElementById('horloge-cadre');
         if (horloge) horloge.classList.add('vibration-horloge');
         SilentHillAlert(message);
         // Suppression du setTimeout pour laisser l'alerte visible jusqu'à l'action utilisateur
@@ -593,7 +593,7 @@ function stopAlertSound() {
         }
     }
     // Retire la vibration de l'horloge
-    const horloge = document.querySelector('.relative.w-96.h-96');
+    const horloge = document.getElementById('horloge-cadre');
     if (horloge) horloge.classList.remove('vibration-horloge');
     // Masque les alertes minuteur/réveil si présentes
     const alerteMinuteur = document.getElementById("alerte-minuteur");
